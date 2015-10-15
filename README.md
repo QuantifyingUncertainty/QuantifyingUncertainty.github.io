@@ -1,1 +1,3 @@
-# UncertaintyQuantification.github.io
+# uncertaintyquantification.github.io
+
+The home page of the "Quantifying Uncertainty" project.

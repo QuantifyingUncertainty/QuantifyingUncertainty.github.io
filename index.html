@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Quantifyinguncertainty.GitHub.io by QuantifyingUncertainty</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Quantifyinguncertainty.GitHub.io</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/QuantifyingUncertainty" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
+<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Introduction</h2>
+
+<p>The "Quantifying Uncertainty" project develops a code library, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm detailed in <a href="http://www.pnas.org/content/111/49/17408.abstract">(Calderhead, 2014)</a>. It can be used to run Monte-Carlo Markov Chain (MCMC) simulations of complex physical and biological processes to estimate process parameters. The GMH algorithm has been used in the scientific publications detailed below (TO DO: add publication list).</p>
+
+<p>The GMH MCMC code is written in <a href="http://julialang.org">Julia</a>, a relatively new language designed for fast and flexible technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to run on clusters and cloud computers. It has an active developer community making the language accessible from multiple platforms: Windows, Linux and MAC computers, and via cloud computing services such as Amazon Web Services or <a href="http://juliabox.org/">JuliaBox</a>.</p>
+
+<p>Typical user situations of the code and documentation are:</p>
+
+<ol>
+<li>Reproduce the MCMC experiments that have been used in the scientific publications listed below. We recommend to run experiments from a pre-compiled machine image published on Amazon Web Services (AWS). The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular paper, reducing your set-up time. By following the setup steps below, you will be able to re-run these experiments via a <a href="http://jupyter.org/">Jupyter/IJulia</a> Notebook server, making them accessible via a web browser like Firefox or Chrome.</li>
+<li>Use the GMH code library to design your own MCMC experiments. The preferred way is to download the GMH repository from Github to your local machine or to work in the cloud via <a href="http://juliabox.org">JuliaBox</a>. </li>
+</ol>
+
+<p>The GMH repository can be obtained from <a href="http://uncertaintyquantification.github.io/GeneralizedMetropolisHastings.jl">http://uncertaintyquantification.github.io/GeneralizedMetropolisHastings.jl</a>. It contains code to develop your own MCMC models. Documentation and examples included in the repository explain how. The rest of the documentation below outlines how to sign up for Amazon Web Services, how to start a pre-compiled AMI, how to set up the GMH repository on <a href="http://juliabox.org">Juliabox</a> or on your local machine, and how to set up and publish your own AMI to accompany the publication of scientific articles that use the GMH repository.</p>
+
+<h2>
+<a id="2-technical-acronyms" class="anchor" href="#2-technical-acronyms" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Technical Acronyms</h2>
+
+<table>
+<thead>
+<tr>
+<th align="center">Acronym</th>
+<th align="left">Full Name</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>AMI</strong></td>
+<td align="left">Amazon Machine Image</td>
+<td align="left">An pre-compiled software image for a virtual server</td>
+</tr>
+<tr>
+<td align="center"><strong>AWS</strong></td>
+<td align="left">Amazon Web Services</td>
+<td align="left">Umbrella name for Amazon's cloud computing services</td>
+</tr>
+<tr>
+<td align="center"><strong>EC2</strong></td>
+<td align="left">Elastic Cloud Computing</td>
+<td align="left">AWS service to run virtual servers</td>
+</tr>
+<tr>
+<td align="center"><strong>IAM</strong></td>
+<td align="left">Identity and Access Management</td>
+<td align="left">AWS service to create users and manage access to other services</td>
+</tr>
+<tr>
+<td align="center"><strong>GMH</strong></td>
+<td align="left">Generalized Metropolis Hastings</td>
+<td align="left">Parallel Metropolis Hastings algorithm outlined in <a href="http://www.pnas.org/content/111/49/17408.abstract">(Calderhead, 2014)</a>
+</td>
+</tr>
+<tr>
+<td align="center"><strong>MCMC</strong></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">Monte-Carlo Markov Chain</a></td>
+<td align="left">Algorithms to sample from unknown probability distributions</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="3-aws-setup-and-user-creation" class="anchor" href="#3-aws-setup-and-user-creation" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. AWS Setup and User Creation</h2>
+
+<h3>
+<a id="step-31-sign-up-for-an-aws-account" class="anchor" href="#step-31-sign-up-for-an-aws-account" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1: Sign up for an AWS account</h3>
+
+<p>This step requires a credit card to set up an account and a phone number to receive a security callback. By using Amazon's "Free Tier", it is possible to avoid being billed, but the credit card is still required.</p>
+
+<p>Please follow the instructions in the following AWS documentation:</p>
+
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html</a></p>
+
+<p>You should complete the following steps outlined in the AWS documentation: </p>
+
+<ol>
+<li>Create an AWS account</li>
+<li>Create one or more IAM users</li>
+<li>Create a Security Group. </li>
+</ol>
+
+<h3>
+<a id="required-security-group-settings" class="anchor" href="#required-security-group-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Required Security Group Settings</h3>
+
+<p>When setting up the Security Group, specify the following inbound ports:</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Service</th>
+<th align="center">Port</th>
+<th align="center">Source</th>
+<th align="left">Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SSH</td>
+<td align="center">22</td>
+<td align="center">0.0.0.0/0</td>
+<td align="left">SSH command-line access</td>
+</tr>
+<tr>
+<td align="left">Custom TCP Rule</td>
+<td align="center">8898</td>
+<td align="center">0.0.0.0/0</td>
+<td align="left">Web browser access to Julia server</td>
+</tr>
+<tr>
+<td align="left">Custom TCP Rule</td>
+<td align="center">49152 - 65535</td>
+<td align="center">127.0.0.1/32</td>
+<td align="left">Internal ports for Julia server</td>
+</tr>
+</tbody>
+</table>
+
+<p>The “0.0.0.0/0” in the “Source” field means that incoming connections from any IP address are allowed. You can make the security group more secure by only allowing incoming connections from known IP addresses (e.g., "My IP" in the EC2 control panel). This means that every time you change your local IP address you will have to update the Security Group. As long as you are careful with the security steps outlined in Steps X and X below, the above settings should be fine.</p>
+
+<p>The entire process of setting up an account, creating IAM users and setting up a security group is likely to take between 1 and 2 hours, depending on your familiarity with AWS. These steps need to be completed only once.</p>
+
+<h2>
+<a id="4-start-a-pre-compiled-ami-on-aws" class="anchor" href="#4-start-a-pre-compiled-ami-on-aws" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Start a Pre-Compiled AMI on AWS</h2>
+
+<h2>
+<a id="5-gmh-repository-on-juliabox" class="anchor" href="#5-gmh-repository-on-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. GMH repository on JuliaBox</h2>
+
+<h2>
+<a id="6-gmh-repository-on-local-machine" class="anchor" href="#6-gmh-repository-on-local-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. GMH repository on local machine</h2>
+
+<h2>
+<a id="7-set-up-an-ami-with-the-gmh-repository" class="anchor" href="#7-set-up-an-ami-with-the-gmh-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Set up an AMI with the GMH repository</h2>
+
+<h2>
+<a id="8-references" class="anchor" href="#8-references" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. References</h2>
+
+<p>Calderhead B, 2014, <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

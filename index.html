@@ -37,12 +37,12 @@
 
 <p>The "Quantifying Uncertainty" project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm detailed in <a href="#calder14">(Calderhead, 2014)</a>. It can be used to run parallelized Monte-Carlo Markov Chains (MCMC) to estimate model parameters of complex physical and biological processes. The GMH algorithm has been used to that end in the scientific publications detailed in the <a href="#refs">References</a>.</p>
 
-<p>The GMH MCMC code is written in <a href="http://julialang.org">Julia</a>, a language designed for fast and flexible technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to take advantage of multi-processor computers and clusters. It has an active developer community making the language accessible on Windows, Linux and Mac, and via cloud computing services such as <a href="http://juliabox.org/">JuliaBox</a> or <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS).</p>
+<p>The GMH MCMC code is written in <a href="http://julialang.org">Julia</a>, a language designed for fast and flexible technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to take advantage of multi-processor computers and clusters. It has an active developer community making Julia technical computing available on Windows, Linux and Mac, and via cloud computing services such as <a href="http://juliabox.org/">JuliaBox</a> or <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS).</p>
 
-<p>You can use the GMH library in two different use cases:</p>
+<p>There are 2 different but overlapping situations to use the GMH functionality:</p>
 
 <ol>
-<li>To replicate MCMC experiments from <a href="#refs">published scientific papers</a>. In this case, we recommend to run the experiments from a pre-compiled machine image published on AWS. The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular article, substantially reducing your set-up time. By following the AWS setup steps below, you will be able to run these experiments via a web browser like Firefox or Chrome.</li>
+<li>To replicate MCMC experiments from <a href="#refs">published scientific papers</a>. In this case, we recommend to run the experiments from a pre-compiled machine image published on AWS. The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular article, substantially reducing your set-up time. By following the AWS setup steps below, you will be able to run these experiments via a web browser such as Firefox or Chrome.</li>
 <li>To use the GMH library to design your own MCMC experiments. The preferred way in this case is to download the GMH repository from GitHub to your local machine or to work in the cloud via <a href="http://juliabox.org">JuliaBox</a>. </li>
 </ol>
 
@@ -170,9 +170,9 @@
 <a id="6-using-gmh-locally" class="anchor" href="#6-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>6. Using GMH locally</h2>
 
 <h2>
-<a id="7-setting-up-an-ec2-ami-with-gmh" class="anchor" href="#7-setting-up-an-ec2-ami-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an EC2 AMI with GMH</h2>
+<a id="7-setting-up-an-ec2-ami" class="anchor" href="#7-setting-up-an-ec2-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an EC2 AMI</h2>
 
-<p>These notes contain the different steps required to set up an Jupyter/IJulia server on AWS. For up to date information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> pages.</p>
+<p>These notes contain the different steps required to set up an Jupyter/IJulia server with GHM on AWS. For up to date information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> pages.</p>
 
 <h3>
 <a id="step-71-launch-an-ec2-instance" class="anchor" href="#step-71-launch-an-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-launch"></a>Step 7.1 Launch an EC2 instance</h3>
@@ -190,7 +190,7 @@
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html</a></p>
 
-<p>Generate a new Key Pair when connecting to this machine for the first time, or use a previously generated Key Pair (see <a href="#aws-signup">Step 3.1</a>. The username for the Ubuntu Server 14.04LTS defaults to <strong>ubuntu</strong>.</p>
+<p>Generate a new Key Pair when connecting to this machine for the first time, or use one previously generated (see <a href="#aws-signup">Step 3.1</a>. The username for the Ubuntu Server 14.04LTS defaults to <strong>ubuntu</strong>.</p>
 
 <h3>
 <a id="step-73-install-julia-on-the-machine" class="anchor" href="#step-73-install-julia-on-the-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-julia"></a>Step 7.3 Install Julia on the machine</h3>
@@ -214,7 +214,9 @@ sudo apt-get -y install julia
 <pre><code>julia -e 'Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")'
 </code></pre>
 
-<p>The REQUIRE file at the top of the tree in the GMH GitHub repository contains a list of all the required packages for the GMH repository, and will install them. The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to your path so it can be started from the command line, add the following line to the file <strong>/home/ubuntu/.profile</strong>:</p>
+<p>The REQUIRE file at the top of the tree in the GMH GitHub repository contains a list of all the required packages for the GMH repository, and will install them. </p>
+
+<p>The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to your path so it can be started from the command line, add the following line to the file <strong>/home/ubuntu/.profile</strong>:</p>
 
 <pre><code>echo 'PATH="$PATH:/home/ubuntu/.julia/v0.4/Conda/deps/usr/bin"' &gt;&gt; /home/ubuntu/.profile
 </code></pre>
@@ -242,7 +244,7 @@ c.NotebookApp.open_browser = False
 <pre><code>jupyter notebook
 </code></pre>
 
-<p>Please note that access to this server is not secured so it is vulnerable to outside attack. You can check that it is running (unsecured) by opening a web browser and going to <strong>http://my_ip_address:8998</strong>, but remember to shut down the server immediately after closing the browser connection by pressing twice Control-C in the SSH terminal and making sure that you see the message "Shutting down kernels".</p>
+<p>Please note that access to this server is not secured so it is vulnerable to outside attack. You can check that it is running (unsecured) by opening a web browser and going to <strong>http://aws_server_ip_address:8998</strong>, but remember to shut down the server immediately after closing the browser connection by pressing twice Control-C in the SSH terminal and making sure that you see the message "Shutting down kernels".</p>
 
 <h3>
 <a id="step-76-create-the-ami" class="anchor" href="#step-76-create-the-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-create"></a>Step 7.6 Create the AMI</h3>
@@ -262,7 +264,7 @@ c.NotebookApp.open_browser = False
 <a id="8-references-" class="anchor" href="#8-references-" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. References <a name="refs"></a>
 </h2>
 
-<p><a name="calder14"></a>Calderhead B, 2014, <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
+<p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
       </section>
       <footer>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>

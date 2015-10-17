@@ -33,23 +33,23 @@
       </nav>
       <section>
         <h2>
-<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Introduction</h2>
+<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
 
-<p>The "Quantifying Uncertainty" project develops a code library, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm detailed in <a href="http://www.pnas.org/content/111/49/17408.abstract">(Calderhead, 2014)</a>. It can be used to run Monte-Carlo Markov Chain methods (MCMC) to estimate model parameters of complex physical and biological processes. The GMH algorithm has been used in the scientific publications detailed <a href="#refs">References</a>.</p>
+<p>The "Quantifying Uncertainty" project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm detailed in <a href="http://www.pnas.org/content/111/49/17408.abstract">(Calderhead, 2014)</a>. It can be used to run parallelized Monte-Carlo Markov Chains (MCMC) to estimate model parameters of complex physical and biological processes. The GMH algorithm has been used in the scientific publications detailed in <a href="#refs">References</a>.</p>
 
-<p>The GMH MCMC code is written in <a href="http://julialang.org">Julia</a>, a relatively new language designed for fast and flexible technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to run on clusters and cloud computers. It has an active developer community making the language accessible on multiple platforms: Windows, Linux and Mac, and via cloud computing such as <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS) or <a href="http://juliabox.org/">JuliaBox</a>.</p>
+<p>The GMH MCMC code is written in <a href="http://julialang.org">Julia</a>, a relatively new language designed for fast and flexible technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to take advantage of multi-processor machines in clusters and cloud computers. It has an active developer community making the language accessible for Windows, Linux and Mac, and via cloud computing services such as <a href="http://juliabox.org/">JuliaBox</a> or <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS).</p>
 
-<p>Typical use cases of the code and documentation are:</p>
+<p>You may want to use the GMH code in two different cases:</p>
 
 <ol>
-<li>To reproduce the MCMC experiments from <a href="#refs">these published papers</a>. We recommend to run experiments from a pre-compiled machine image published on AWS. The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular scientific publication, substantially reducing your set-up time. By following the setup steps below, you will be able to run these experiments via a <a href="http://jupyter.org/">Jupyter/IJulia</a> Notebook server, making them accessible via a browser like Firefox or Chrome.</li>
-<li>Use the GMH code library to design your own MCMC experiments. The preferred way is to download the GMH repository from GitHub to your local machine or to work in the cloud via <a href="http://juliabox.org">JuliaBox</a>. </li>
+<li>To reproduce MCMC experiments from <a href="#refs">published scientific papers</a>. In this case, we recommend to run experiments from a pre-compiled machine image published on AWS. The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular article, substantially reducing your set-up time. By following the AWS setup steps below, you will be able to run these experiments via a web browser like Firefox or Chrome.</li>
+<li>To use the GMH library to design your own MCMC experiments. The preferred way is to download the GMH repository from GitHub to your local machine or to work in the cloud via <a href="http://juliabox.org">JuliaBox</a>. </li>
 </ol>
 
-<p>The GMH repository can be downloaded from its repository on <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GitHub</a>. It contains code to develop your own MCMC models. Documentation and examples included in the repository explain how. The rest of the documentation below outlines how to set up on different platforms (AWS, JuliaBox, or your local machine). Steps explained below include how to sign up for AWS, how to run a published AMI, how to set up the GMH repository on <a href="http://juliabox.org">Juliabox</a> or on your local machine, and how to set up and publish your own AMI to accompany the publication of scientific articles that use the GMH repository.</p>
+<p>The GMH repository can be installed from <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GitHub</a>. Documentation and examples to develop your own MCMC experiments is included in the repository. The remainder of the documentation below outlines how to set up and use the GMH code on different platforms (AWS, JuliaBox, or your local machine): how to sign up for AWS, how to run a published AMI, how to use the GMH repository on <a href="http://juliabox.org">Juliabox</a> or on your local machine, and how to publish your own AMI to accompany the publication of scientific articles that use the GMH repository.</p>
 
 <h2>
-<a id="2-acronyms" class="anchor" href="#2-acronyms" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Acronyms</h2>
+<a id="2-acronyms" class="anchor" href="#2-acronyms" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="acronyms"></a>2. Acronyms</h2>
 
 <table>
 <thead>
@@ -68,7 +68,7 @@
 <tr>
 <td align="center"><strong>AWS</strong></td>
 <td align="left">Amazon Web Services</td>
-<td align="left">Umbrella name for Amazon's cloud computing services</td>
+<td align="left">Amazon's cloud computing services</td>
 </tr>
 <tr>
 <td align="center"><strong>EC2</strong></td>
@@ -89,25 +89,24 @@
 <tr>
 <td align="center"><strong>MCMC</strong></td>
 <td align="left"><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">Monte-Carlo Markov Chain</a></td>
-<td align="left">Algorithms to sample from unknown probability distributions</td>
+<td align="left">Class of algorithms to sample from unknown probability distributions</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="3-aws-setup" class="anchor" href="#3-aws-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. AWS Setup</h2>
+<a id="3-aws-setup" class="anchor" href="#3-aws-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-setup"></a>3. AWS Setup</h2>
 
 <h3>
-<a id="step-31-sign-up-for-an-aws-account-" class="anchor" href="#step-31-sign-up-for-an-aws-account-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1: Sign up for an AWS account <a name="step3-1"></a>
-</h3>
+<a id="step-31-sign-up-for-an-aws-account" class="anchor" href="#step-31-sign-up-for-an-aws-account" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 3.1: Sign up for an AWS account</h3>
 
 <p>This step requires a credit card to set up an account and a phone number to receive a security callback. By using Amazon's "Free Tier", it is possible to avoid being billed, but the credit card is still required.</p>
 
-<p>Please follow the instructions in the following AWS documentation:</p>
+<p>Follow the instructions in the following AWS documentation:</p>
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html</a></p>
 
-<p>You should complete the following steps outlined in the AWS documentation: </p>
+<p>You should complete the following steps outlined in the above documentation: </p>
 
 <ol>
 <li>Create an AWS account</li>
@@ -117,9 +116,9 @@
 </ol>
 
 <h3>
-<a id="required-security-group-settings" class="anchor" href="#required-security-group-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a>Required Security Group Settings</h3>
+<a id="required-security-group-settings" class="anchor" href="#required-security-group-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="sg-rules"></a>Required Security Group Settings</h3>
 
-<p>When setting up the Security Group, specify the following inbound ports:</p>
+<p>When setting up the Security Group, specify the following inbound rules:</p>
 
 <table>
 <thead>
@@ -152,34 +151,33 @@
 </tbody>
 </table>
 
-<p>The “0.0.0.0/0” in the “Source” field means that incoming connections from any IP address are allowed. You can make the security group more secure by only allowing incoming connections from known IP addresses (e.g., "My IP" in the EC2 control panel). This means that every time you change your local IP address you will have to update the Security Group. As long as you are careful with the security steps outlined in Steps X and X below, the above settings should be fine.</p>
+<p>The “0.0.0.0/0” in the “Source” field means that incoming connections from any IP address are allowed. You can make the security group more secure by only allowing incoming connections from known IP addresses (e.g., "My IP" in the EC2 control panel). This means that every time you change your local IP address you will have to update the Security Group. As long as you are careful with the security steps outlined in Steps 4. and 4. below, the above settings should be fine.</p>
 
 <p>The entire process of setting up an account, creating IAM users and setting up a security group is likely to take between 1 and 2 hours, depending on your familiarity with AWS. These steps need to be completed only once.</p>
 
 <h3>
-<a id="step-32-open-the-ec2-dashboard-and-check-the-region" class="anchor" href="#step-32-open-the-ec2-dashboard-and-check-the-region" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.2: Open the EC2 dashboard and check the region</h3>
+<a id="step-32-open-the-ec2-dashboard-and-check-the-region" class="anchor" href="#step-32-open-the-ec2-dashboard-and-check-the-region" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 3.2: Open the EC2 dashboard and check the region</h3>
 
-<p>From the AWS console, select “EC2”. The EC2 dashboard will open.</p>
+<p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot see the AMIs published for the different articles. From the AWS console, select “EC2”. The EC2 dashboard will open.</p>
 
 <p>Amazon regions (data centers) are independent. In order to find the AMIs described below, you need to make sure that you are logged into the correct region. At this moment, the only region in which the pre-compiled AMIs are published is “Ireland”. Check this in the top right corner of the EC2 dashboard, between your IAM username and “Support”.</p>
 
 <h2>
-<a id="4-run-gmh-in-an-ami-on-aws-" class="anchor" href="#4-run-gmh-in-an-ami-on-aws-" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Run GMH in an AMI on AWS <a name="section4"></a>
-</h2>
+<a id="-4-using-gmh-on-an-ec2-ami" class="anchor" href="#-4-using-gmh-on-an-ec2-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-aws"></a> 4. Using GMH on an EC2 AMI</h2>
 
 <h2>
-<a id="5-using-gmh-on-juliabox" class="anchor" href="#5-using-gmh-on-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Using GMH on JuliaBox</h2>
+<a id="-5-using-gmh-on-juliabox" class="anchor" href="#-5-using-gmh-on-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-box"></a> 5. Using GMH on JuliaBox</h2>
 
 <h2>
-<a id="6-using-gmh-locally" class="anchor" href="#6-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Using GMH locally</h2>
+<a id="6-using-gmh-locally" class="anchor" href="#6-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>6. Using GMH locally</h2>
 
 <h2>
-<a id="7-set-up-an-ami-with-the-gmh-repository" class="anchor" href="#7-set-up-an-ami-with-the-gmh-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Set up an AMI with the GMH repository</h2>
+<a id="7-setting-up-an-ec2-ami-with-gmh" class="anchor" href="#7-setting-up-an-ec2-ami-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an EC2 AMI with GMH</h2>
 
-<p>These notes contain the different steps required to set up an Jupyter/IJulia server on AWS. For up to date information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> GitHub repositories.</p>
+<p>These notes contain the different steps required to set up an Jupyter/IJulia server on AWS. For up to date information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> pages.</p>
 
 <h3>
-<a id="step-71-launch-an-ec2-instance" class="anchor" href="#step-71-launch-an-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1 Launch an EC2 instance</h3>
+<a id="step-71-launch-an-ec2-instance" class="anchor" href="#step-71-launch-an-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-launch"></a>Step 7.1 Launch an EC2 instance</h3>
 
 <p>Follow these instructions to launch a new machine instance:</p>
 
@@ -188,18 +186,18 @@
 <p>Choose the Ubuntu Server 14.04 LTS (or a later version of Ubuntu). Different instance types have different costs associated. The one that currently falls within AWS's Free Tier is t2.micro.</p>
 
 <h3>
-<a id="step-72-connect-to-the-ec2-instance" class="anchor" href="#step-72-connect-to-the-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.2: Connect to the EC2 instance</h3>
+<a id="step-72-connect-to-the-ec2-instance" class="anchor" href="#step-72-connect-to-the-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-connect"></a>Step 7.2: Connect to the EC2 instance</h3>
 
 <p>Follow these instructions to connect to the instance:</p>
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html</a></p>
 
-<p>Generate a new key pair when connecting to this machine for the first time, or use a previously generated key pair (see <a href="#step3-1">Step 3.1</a>. The username for the Ubuntu Server 14.04LTS defaults to "ubuntu".</p>
+<p>Generate a new Key Pair when connecting to this machine for the first time, or use a previously generated Key Pair (see <a href="#aws-signup">Step 3.1</a>. The username for the Ubuntu Server 14.04LTS defaults to <strong>ubuntu</strong>.</p>
 
 <h3>
-<a id="step-73-install-julia-on-the-machine" class="anchor" href="#step-73-install-julia-on-the-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.3 Install Julia on the machine</h3>
+<a id="step-73-install-julia-on-the-machine" class="anchor" href="#step-73-install-julia-on-the-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-julia"></a>Step 7.3 Install Julia on the machine</h3>
 
-<p>In order to install the latest stable release of Julia, at the SSH command prompt, perform the following steps:</p>
+<p>In order to install the latest stable release of Julia, connect via SSH and execute:</p>
 
 <pre><code>sudo add-apt-repository ppa:staticfloat/julia-deps
 sudo add-apt-repository ppa:staticfloat/juliareleases
@@ -208,43 +206,61 @@ sudo apt-get -y install build-essential
 sudo apt-get -y install julia
 </code></pre>
 
-<p>The <code>build-essential</code> package contains essential build tools that Julia needs to build some of its own packages. </p>
+<p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. </p>
 
-<p>If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <code>julia</code>. Exit via typing <code>exit()</code>.</p>
+<p>If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
 
 <h3>
-<a id="step-74-install-ijuliajupyter-and-additional-julia-packages" class="anchor" href="#step-74-install-ijuliajupyter-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.4 Install IJulia/Jupyter and additional Julia packages</h3>
+<a id="step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" class="anchor" href="#step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-ijulia"></a>Step 7.4 Install GMH, which will install IJulia and additional Julia packages</h3>
 
 <p>At the SSH command line, execute:</p>
 
-<pre><code>julia -e 'Pkg.add("IJulia")'
-julia -e 'Pkg.add("PyPlot")'
-julia -e 'Pkg.add("Gadfly")'
-julia -e 'Pkg.add("Distributions")'
-julia -e 'Pkg.add("Sundials")'
+<pre><code>julia -e 'Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")'
 </code></pre>
 
-<p>The IJulia package installs its own Jupyter server. To add this server to your path so it can be started from the command line, add the following line to the <code>/home/ubuntu/.profile</code> file:</p>
+<p>The REQUIRE file at the top of the tree in the GMH GitHub repository contains a list of all the required packages for the GMH repository, and will install them. The IJulia package (which allows access to the EC2 machine over a web browser interface) installs its own Jupyter server. To add this server to your path so it can be started from the command line, add the following line to the file <strong>/home/ubuntu/.profile</strong>:</p>
 
-<p><code>PATH="$PATH:/home/ubuntu/.julia/v0.4/Conda/deps/usr/bin"</code></p>
+<pre><code>echo 'PATH="$PATH:/home/ubuntu/.julia/v0.4/Conda/deps/usr/bin"' &gt;&gt; /home/ubuntu/.profile
+</code></pre>
 
 <h3>
-<a id="step-75-prepare-a-jupyter-notebook-server-for-remote-access" class="anchor" href="#step-75-prepare-a-jupyter-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.5 Prepare a Jupyter Notebook server for remote access</h3>
+<a id="step-75-prepare-a-jupyter-notebook-server-for-remote-access" class="anchor" href="#step-75-prepare-a-jupyter-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-jupyter-remote"></a>Step 7.5 Prepare a Jupyter Notebook server for remote access</h3>
 
-<p>For the most up-to-date information, check the <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> documentation. Some of these steps (securing the notebook server) should be performed later (see <a href="#section4">Step 4.4</a>). Start by generating a <code>jupyter_notebook_config.py</code> file:</p>
+<p>For the most up-to-date information on these steps, check the <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> documentation. Some of these steps (securing the notebook server) should only be performed <em>after</em> publishing the AMI (see <a href="#gmh-on-aws">Using GMH on an EC2 AMI</a>). </p>
+
+<p>Start by generating a <strong>jupyter_notebook_config.py</strong> file:</p>
 
 <pre><code>jupyter notebook --generate-config
 
 </code></pre>
 
-<p>In the resulting <code>/home/ubuntu/.jupyter/jupyter_notebook_config.py</code> file, uncomment and edit the following lines:</p>
+<p>In the resulting <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong> file, uncomment and edit the following lines:</p>
 
 <pre><code>c.NotebookApp.ip = '*'
-c.NotebookApp.open_browser = False
 c.NotebookApp.port = 8998
+c.NotebookApp.open_browser = False
 </code></pre>
 
-<p>Those are the steps that can be completed for Step 7.5. </p>
+<p>You can now start a Jupyter Notebook server from the command line:</p>
+
+<pre><code>jupyter notebook
+</code></pre>
+
+<p>Please note that access to this server is not secured so is vulnerable to outside attack. You can check that it is running (unsecured) by opening a web browser and going to <strong>http://my_ip_address:8998</strong>, but remember to shut down the server immediately after closing the browser connection by pressing twice Control-C in the SSH terminal and making sure that you see the message "Shutting down kernels".</p>
+
+<h3>
+<a id="step-76-create-the-ami" class="anchor" href="#step-76-create-the-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-create"></a>Step 7.6 Create the AMI</h3>
+
+<p>Before creating the AMI, you must remove the SSH key with which the instance was started. To do so, follow the steps in the following article:</p>
+
+<p><a href="https://aws.amazon.com/articles/0155828273219400">https://aws.amazon.com/articles/0155828273219400</a></p>
+
+<p>Stop the instance customised above from the EC2 console, and follow these steps to create the AMI:</p>
+
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami</a></p>
+
+<p>Here are the general guidelines to share a public AMI:
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html</a></p>
 
 <h2>
 <a id="8-references-" class="anchor" href="#8-references-" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. References <a name="refs"></a>

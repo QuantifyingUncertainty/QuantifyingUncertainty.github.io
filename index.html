@@ -364,9 +364,9 @@ Pkg.update()
 <a id="step-63-install-the-gmh-examples-repository" class="anchor" href="#step-63-install-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.3 Install the GMH-Examples repository</h3>
 
 <h2>
-<a id="7-setting-up-an-ami-with-gmh" class="anchor" href="#7-setting-up-an-ami-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an AMI with GMH</h2>
+<a id="7-ami-with-gmh--julia-v0311" class="anchor" href="#7-ami-with-gmh--julia-v0311" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. AMI with GMH + Julia v0.3.11</h2>
 
-<p>These notes contain the different steps required to set up an Jupyter/IJulia server with GHM on AWS. For the latest information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> pages.</p>
+<p>Notes to prepare a Ubuntu AMI with Julia 0.3.11, the GMH repository and an IJulia server.</p>
 
 <h3>
 <a id="step-71-launch-an-ec2-instance" class="anchor" href="#step-71-launch-an-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-launch"></a>Step 7.1 Launch an EC2 instance</h3>
@@ -375,56 +375,42 @@ Pkg.update()
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance_linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance_linux.html</a></p>
 
-<p>Choose the Ubuntu Server 14.04 LTS (or a later version of Ubuntu). Different instance types have different costs associated. The one that currently falls within AWS's Free Tier is t2.micro.</p>
+<p>Choose the Ubuntu Server 14.04 LTS (or a later version of Ubuntu). </p>
 
 <h3>
 <a id="step-72-connect-to-the-ec2-instance" class="anchor" href="#step-72-connect-to-the-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-connect"></a>Step 7.2: Connect to the EC2 instance</h3>
 
 <p>Follow the instructions of <a href="#ami-connect">Step 4.2</a>.</p>
 
-<p>Generate a new Key Pair when connecting to this machine for the first time, or use one previously generated (see <a href="#aws-signup">Step 3.1</a>). The username for the Ubuntu Server 14.04LTS defaults to <strong>ubuntu</strong>.</p>
-
 <h3>
-<a id="step-73-install-julia-on-the-machine" class="anchor" href="#step-73-install-julia-on-the-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-julia"></a>Step 7.3 Install Julia on the machine</h3>
-
-<p>In order to install the latest stable release of Julia, connect via SSH and execute:</p>
+<a id="step-73-install-julia-0311-on-the-machine" class="anchor" href="#step-73-install-julia-0311-on-the-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-julia"></a>Step 7.3 Install Julia 0.3.11 on the machine</h3>
 
 <pre><code>sudo add-apt-repository ppa:staticfloat/julia-deps
 sudo add-apt-repository ppa:staticfloat/juliareleases
 sudo apt-get update
 sudo apt-get -y install build-essential
-sudo apt-get -y install julia
+sudo apt-get -y install julia=0.3.11-trusty2
 </code></pre>
 
-<p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
+<p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. </p>
+
+<p>If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
 
 <h3>
 <a id="step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" class="anchor" href="#step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-gmh"></a>Step 7.4 Install GMH, which will install IJulia and additional Julia packages</h3>
 
-<p>At the SSH command line, execute:</p>
-
 <pre><code>julia -e 'Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")'
 </code></pre>
 
-<p>The REQUIRE file at the top of the tree in the GMH GitHub repository contains a list of all the required packages for the GMH repository, and will install them. </p>
+<p>The above step will install all packages required for GMH. The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to your path so it can be started from the command line, add this path to <strong>/home/ubuntu/.profile</strong>:</p>
 
-<p>The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to your path so it can be started from the command line, add the following line to the file <strong>/home/ubuntu/.profile</strong>:</p>
-
-<pre><code>echo 'PATH="$PATH:/home/ubuntu/.julia/v0.4/Conda/deps/usr/bin"' &gt;&gt; /home/ubuntu/.profile
+<pre><code>echo 'PATH="$PATH:/home/ubuntu/.julia/v0.3/Conda/deps/usr/bin"' &gt;&gt; /home/ubuntu/.profile
 </code></pre>
 
 <h3>
 <a id="step-75-prepare-a-jupyter-notebook-server-for-remote-access" class="anchor" href="#step-75-prepare-a-jupyter-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-jupyter-remote"></a>Step 7.5 Prepare a Jupyter Notebook server for remote access</h3>
 
-<p>For the most up-to-date information on these steps, check the <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> documentation. Some of these steps (Securing the Notebook Server) should only be performed <em>after</em> publishing the AMI (see <a href="#gmh-on-aws">Using GMH on an EC2 AMI</a>). </p>
-
-<p>Start by generating a <strong>jupyter_notebook_config.py</strong> file:</p>
-
-<pre><code>jupyter notebook --generate-config
-
-</code></pre>
-
-<p>In the resulting <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong> file, uncomment and edit the following lines:</p>
+<p>Create a file <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong> with the following lines:</p>
 
 <pre><code>c.NotebookApp.ip = '*'
 c.NotebookApp.port = 8998

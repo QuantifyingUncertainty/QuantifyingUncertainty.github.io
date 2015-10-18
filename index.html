@@ -339,10 +339,32 @@ jupyter notebook &amp;
 <h2>
 <a id="6-using-gmh-locally" class="anchor" href="#6-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>6. Using GMH locally</h2>
 
-<p>Coming soon...</p>
+<h3>
+<a id="step-61-install-julia--ide" class="anchor" href="#step-61-install-julia--ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.1: Install Julia + IDE</h3>
+
+<p>Install the latest version of Julia for your machine from <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/">Juno</a> is recommended.</p>
+
+<h3>
+<a id="step-62-install-the-gmh-package" class="anchor" href="#step-62-install-the-gmh-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.2: Install the GMH package</h3>
+
+<p>Open Julia and execute the following commands:</p>
+
+<pre><code>Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")
+Pkg.update()
+</code></pre>
+
+<p>This will install the GMH repository and the required packages, and, if required, update them to the latest version.</p>
+
+<p>The GMH repository has been tested with Julia v0.3.11 and v0.4.0. Julia and its packages are in rapid development and you may wish to test your current Julia installation with GMH. You can do so by running the GMH tests:</p>
+
+<pre><code>include(normpath(Pkg.dir(),"GeneralizedMetropolisHasints/test/runtests.jl"))
+</code></pre>
+
+<h3>
+<a id="step-63-install-the-gmh-examples-repository" class="anchor" href="#step-63-install-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.3 Install the GMH-Examples repository</h3>
 
 <h2>
-<a id="7-setting-up-an-ec2-ami" class="anchor" href="#7-setting-up-an-ec2-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an EC2 AMI</h2>
+<a id="7-setting-up-an-ami-with-gmh" class="anchor" href="#7-setting-up-an-ami-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Setting up an AMI with GMH</h2>
 
 <p>These notes contain the different steps required to set up an Jupyter/IJulia server with GHM on AWS. For the latest information see the documentation from the <a href="https://github.com/JuliaLang/IJulia.jl">IJulia</a> and <a href="http://jupyter-notebook.readthedocs.org/en/latest/public_server.html">Jupyter</a> pages.</p>
 

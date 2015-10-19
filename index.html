@@ -422,9 +422,9 @@ c.NotebookApp.password = u''
 
 <p>Before creating the AMI, you must remove the SSH key with which the instance was started, as well as any command line histories:</p>
 
-<pre><code>find /root/.*history /home/ubuntu/.*history -exec rm -f {} \;
-find /root/.ssh/authorized_keys –exec rm –f {} \;
-find /home/ubuntu/.ssh/authorized_keys -exec rm -f {} \;
+<pre><code>sudo find /home/ubuntu/.*history -exec rm -f {} \;
+sudo find /root/.ssh/authorized_keys –exec rm –f {} \;
+sudo find /home/ubuntu/.ssh/authorized_keys -exec rm -f {} \;
 </code></pre>
 
 <p>Further security guidelines can be found in: <a href="https://aws.amazon.com/articles/0155828273219400">https://aws.amazon.com/articles/0155828273219400</a></p>

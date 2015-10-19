@@ -1,22 +1,38 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Quantifyinguncertainty.GitHub.io by QuantifyingUncertainty</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Quantifyinguncertainty.GitHub.io</h1>
-      <h2 class="project-tagline"></h2>
-    </section>
 
-    <section class="main-content">
-      <h2>
+      <header>
+        <h1>Quantifyinguncertainty.GitHub.io</h1>
+        <p></p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/QuantifyingUncertainty" class="button fork"><strong>View On GitHub</strong></a>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h2>
 <a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
 
 <p>The "Quantifying Uncertainty" project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm detailed in <a href="#calder14">(Calderhead, 2014)</a>. It implements parallelized Monte-Carlo Markov Chains methods (MCMC) to estimate model parameters of complex physical and biological processes. The GMH algorithm has been used to that end in the scientific publications detailed in the <a href="#refs">References</a>.</p>
@@ -348,26 +364,25 @@ Pkg.update()
 <a id="step-63-install-the-gmh-examples-repository" class="anchor" href="#step-63-install-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.3 Install the GMH-Examples repository</h3>
 
 <h2>
-<a id="7-ami-with-gmh--julia-v0311" class="anchor" href="#7-ami-with-gmh--julia-v0311" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. AMI with GMH + Julia v0.3.11</h2>
-
-<p>Notes to prepare a Ubuntu AMI with Julia 0.3.11, the GMH repository and an IJulia server.</p>
+<a id="7-configure-amis-with-gmh" class="anchor" href="#7-configure-amis-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>7. Configure AMIs with GMH</h2>
 
 <h3>
-<a id="step-71-launch-an-ec2-instance" class="anchor" href="#step-71-launch-an-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-launch"></a>Step 7.1 Launch an EC2 instance</h3>
+<a id="71-ami-with-julia-v0311" class="anchor" href="#71-ami-with-julia-v0311" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-julia0.3"></a>7.1 AMI with Julia v0.3.11</h3>
 
-<p>Follow these instructions to launch a new machine instance:</p>
+<h4>
+<a id="step-711-launch-a-fresh-ec2-instance" class="anchor" href="#step-711-launch-a-fresh-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.1 Launch a fresh EC2 instance</h4>
+
+<p>Select a Ubuntu Server LTS14.04. Launch instructions:</p>
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance_linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance_linux.html</a></p>
 
-<p>Choose the Ubuntu Server 14.04 LTS (or a later version of Ubuntu). </p>
-
-<h3>
-<a id="step-72-connect-to-the-ec2-instance" class="anchor" href="#step-72-connect-to-the-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-connect"></a>Step 7.2: Connect to the EC2 instance</h3>
+<h4>
+<a id="step-712-connect-to-the-ec2-instance" class="anchor" href="#step-712-connect-to-the-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.2: Connect to the EC2 instance</h4>
 
 <p>Follow the instructions of <a href="#ami-connect">Step 4.2</a>.</p>
 
-<h3>
-<a id="step-73-install-julia-03-currently-0311" class="anchor" href="#step-73-install-julia-03-currently-0311" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-julia"></a>Step 7.3 Install Julia 0.3 (currently 0.3.11)</h3>
+<h4>
+<a id="step-713-install-julia-03-currently-0311" class="anchor" href="#step-713-install-julia-03-currently-0311" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.3 Install Julia 0.3 (currently 0.3.11)</h4>
 
 <pre><code>sudo add-apt-repository ppa:staticfloat/julia-deps
 sudo add-apt-repository ppa:staticfloat/juliareleases
@@ -376,23 +391,21 @@ sudo apt-get -y install build-essential
 sudo apt-get -y install julia0.3
 </code></pre>
 
-<p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. </p>
+<p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
 
-<p>If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
-
-<h3>
-<a id="step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" class="anchor" href="#step-74-install-gmh-which-will-install-ijulia-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-install-gmh"></a>Step 7.4 Install GMH, which will install IJulia and additional Julia packages</h3>
+<h4>
+<a id="step-714-install-gmh-ijulia-and-additional-julia-packages" class="anchor" href="#step-714-install-gmh-ijulia-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.4 Install GMH, IJulia and additional Julia packages</h4>
 
 <pre><code>julia -e 'Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")'
 </code></pre>
 
-<p>The above step will install all packages required for GMH. The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to your path so it can be started from the command line, add this path to <strong>/home/ubuntu/.profile</strong>:</p>
+<p>The above step will install all packages required for GMH. The IJulia package (which enables access to Julia via a web browser) installs its own <a href="http://jupyter.org">Jupyter</a> server. To add this server to the path so it can be started from the command line, add this path to <strong>/home/ubuntu/.profile</strong>:</p>
 
 <pre><code>echo 'PATH="$PATH:/home/ubuntu/.julia/v0.3/Conda/deps/usr/bin"' &gt;&gt; /home/ubuntu/.profile
 </code></pre>
 
-<h3>
-<a id="step-75-prepare-a-jupyter-notebook-server-for-remote-access" class="anchor" href="#step-75-prepare-a-jupyter-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ec2-jupyter-remote"></a>Step 7.5 Prepare a Jupyter Notebook server for remote access</h3>
+<h4>
+<a id="step-715-prepare-the-ijulia-notebook-server-for-remote-access" class="anchor" href="#step-715-prepare-the-ijulia-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.5 Prepare the IJulia Notebook server for remote access</h4>
 
 <p>Create a file <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong> with the following lines:</p>
 
@@ -404,12 +417,17 @@ c.NotebookApp.certfile = u'/home/ubuntu/.certificates/mycert.pem'
 c.NotebookApp.password = u''
 </code></pre>
 
-<h3>
-<a id="step-76-create-the-ami" class="anchor" href="#step-76-create-the-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-create"></a>Step 7.6 Create the AMI</h3>
+<h4>
+<a id="step-716-create-the-ami" class="anchor" href="#step-716-create-the-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.6 Create the AMI</h4>
 
-<p>Before creating the AMI, you must remove the SSH key with which the instance was started. To do so, follow the steps in the following article:</p>
+<p>Before creating the AMI, you must remove the SSH key with which the instance was started, as well as any command line histories:</p>
 
-<p><a href="https://aws.amazon.com/articles/0155828273219400">https://aws.amazon.com/articles/0155828273219400</a></p>
+<pre><code>find /root/.*history /home/ubuntu/.*history -exec rm -f {} \;
+find /root/.ssh/authorized_keys –exec rm –f {} \;
+find /home/ubuntu/.ssh/authorized_keys -exec rm -f {} \;
+</code></pre>
+
+<p>Further security guidelines can be found in: <a href="https://aws.amazon.com/articles/0155828273219400">https://aws.amazon.com/articles/0155828273219400</a></p>
 
 <p>Stop the instance customised above from the EC2 console, and follow these steps to create the AMI:</p>
 
@@ -423,14 +441,12 @@ c.NotebookApp.password = u''
 </h2>
 
 <p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
-
-      <footer class="site-footer">
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </section>
+      <footer>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
       </footer>
-
-    </section>
-
-  
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>

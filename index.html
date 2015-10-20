@@ -357,26 +357,52 @@ jupyter notebook &amp;
 <h2>
 <a id="-4-using-gmh-in-juliabox" class="anchor" href="#-4-using-gmh-in-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-box"></a> 4. Using GMH in JuliaBox</h2>
 
-<p>Coming soon...</p>
+<h3>
+<a id="step-41-sign-in-to-juliabox" class="anchor" href="#step-41-sign-in-to-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.1: Sign in to JuliaBox</h3>
 
-<h2>
-<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>5. Using GMH locally</h2>
+<p>Go to <a href="https://juliabox.org">https://juliabox.org</a> and sign in with your Google credentials.</p>
+
+<h3>
+<a id="step-42-install-the-generalizedmetropolishastingsjl-package" class="anchor" href="#step-42-install-the-generalizedmetropolishastingsjl-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.2: Install the GeneralizedMetropolisHastings.jl package.</h3>
+
+<p>At the top of the JuliaBox window, select <strong>Terminal</strong>. Execute the following command to install GMH for the Julia v0.3.11 installation of JuliaBox (the currently preferred version for GMH). This will install GMH in the package folder <strong>/home/juser/.julia/0.3</strong>.</p>
+
+<pre><code>/opt/julia-0.3.11/bin/julia -e ‘Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")’
+</code></pre>
+
+<p>You can test if GMH installed correctly and is compatible with this particular JuliaBox installation by running the GMH tests:</p>
+
+<pre><code>/opt/julia-0.3.11/bin/julia -e ‘include(normpath(Pkg.dir("GeneralizedMetropolisHastings"),"test/runtests.jl"))’
+</code></pre>
+
+<h3>
+<a id="step-43-sync-the-gmh-examples-repository" class="anchor" href="#step-43-sync-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.3 Sync the GMH-Examples repository</h3>
+
+<p>Sync the GMH-Examples.jl repository from GitHub to your JuliaBox home folder. At the top of the JuliaBox window, select <strong>Sync</strong>.  Add the following repository to the “Git Repositories”.</p>
+
+<p><a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl.git">https://github.com/QuantifyingUncertainty/GMH-Examples.jl.git</a></p>
+
+<p>Paste this into the “Git Clone URL”. Accept “master” as branch, “GMH-Examples.jl” as location, and press “+” to add the repository. This will now download the package to the specified location. </p>
+
+<p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples-jl</a> repository for details of how to use it.</p>
+
+<h1>
+<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>5. Using GMH locally</h1>
 
 <h3>
 <a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>
 
-<p>Install the latest version of Julia for your machine from <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/">Juno</a> is recommended.</p>
+<p>Install Julia from <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/">Juno</a> is recommended.</p>
 
 <h3>
 <a id="step-52-install-the-gmh-package" class="anchor" href="#step-52-install-the-gmh-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.2: Install the GMH package</h3>
 
-<p>Open Julia and execute the following commands:</p>
+<p>Start Julia and execute the following commands:</p>
 
 <pre><code>Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")
-Pkg.update()
 </code></pre>
 
-<p>This will install the GMH repository and the required packages, and, if required, update them to the latest version.</p>
+<p>This will install the GMH repository and the required packages.</p>
 
 <p>The GMH repository has been tested with Julia v0.3.8-v0.3.11. Julia and its packages are in rapid development and you may wish to test your current Julia installation with GMH. You can do so by running the GMH tests:</p>
 
@@ -386,7 +412,7 @@ Pkg.update()
 <h3>
 <a id="step-53-install-the-gmh-examples-repository" class="anchor" href="#step-53-install-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.3 Install the GMH-Examples repository</h3>
 
-<p>Install the GMH-Examples.jl repository from GitHub in a local folder. Instructions on how to do this for your platform are on <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GitHub</a>. </p>
+<p>Install the GMH-Examples.jl repository from GitHub in a local folder. Instructions on how to do this for your platform can be found on <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GitHub</a>. </p>
 
 <p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples-jl</a> repository on how to use it.</p>
 

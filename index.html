@@ -33,6 +33,16 @@
       </nav>
       <section>
         <h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+
+<p><a href="#intro">Introduction</a>
+<a href="#aws-setup">Amazon Web Services Setup</a>
+<a href="#gmh-on-aws">Using Generalized Metropolis-Hastings on AWS</a>
+<a href="#gmh-on-box">Using Generalized Metropolis-Hastings on JuliaBox</a>
+<a href="#gmh-on-local">Using Generalized Metropolis-Hastings on local machine</a>
+<a href="#gmh-ami-setup">Setting up Amazon Machine Images with Generalized Metropolis-Hastings</a></p>
+
+<h2>
 <a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
 
 <p>The "Quantifying Uncertainty" project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm proposed in <a href="#calder14">(Calderhead, 2014)</a>. It implements a class of parallelized Monte-Carlo Markov Chains methods (MCMC) that can be used to estimate model parameters of complex physical and biological processes. Details of the GMH algorithm can be found in the scientific publications listed in the <a href="#refs">References</a>.</p>
@@ -46,7 +56,7 @@
 <li>To use the GMH library to design your own MCMC experiments. In addition to using GMH on AWS, alternative ways are to download the GMH repository from GitHub to your local machine or to work via <a href="http://juliabox.org">JuliaBox</a>. </li>
 </ol>
 
-<p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Examples to help users to develop their own MCMC simulations are included in another repository, <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a>. The remainder of this documentation outlines how to setup GMH on different platforms (AWS, JuliaBox, or your local machine). It explains in detail how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 6).</p>
+<p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Examples to help users to develop their own MCMC simulations are included in another repository, <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a>. The remainder of this documentation outlines how to setup GMH on different platforms. It explains in detail how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 6).</p>
 
 <h3>
 <a id="table-1-acronyms" class="anchor" href="#table-1-acronyms" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="acronyms"></a>Table 1. Acronyms</h3>
@@ -156,7 +166,7 @@
 <h3>
 <a id="step-22-check--the-aws-region" class="anchor" href="#step-22-check--the-aws-region" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 2.2: Check  the AWS region</h3>
 
-<p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot find the published AMIs listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the GMH AMIs, you need to be logged into the correct region. At this moment, the only region in which the GHM AMIs are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the AWS and EC2 dashboards, between your IAM username and “Support”.</p>
+<p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot find the published AMIs listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the GMH AMIs, you need to be logged into the correct region. At this moment, the only region in which the GMH AMIs are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the AWS and EC2 dashboards, between your IAM username and “Support”.</p>
 
 <h2>
 <a id="-3-using-gmh-on-aws" class="anchor" href="#-3-using-gmh-on-aws" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-aws"></a> 3. Using GMH on AWS</h2>
@@ -185,11 +195,11 @@
 <a id="step-31-launch-a-published-ami" class="anchor" href="#step-31-launch-a-published-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="launch-ami"></a>Step 3.1: Launch a published AMI</h3>
 
 <h4>
-<a id="step-311-choose-ami" class="anchor" href="#step-311-choose-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.1: Choose AMI</h4>
+<a id="step-311-choose-an-ami" class="anchor" href="#step-311-choose-an-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.1: Choose an AMI</h4>
 
 <p>Once logged into the AWS dashboard, go to the EC2 console. Select <strong>Instances</strong> in the left-hand menu, and click the <strong>Launch</strong> button at the top of the panel. Select <strong>Community AMIs</strong> from the left-hand menu and in the search box that appears, copy-paste one of the published AMI names from Table 3. Click the <strong>Select</strong> button to launch the AMI.</p>
 
-<p><strong>Troubleshooting</strong>: if no AMI appears in the list, then <a href="#aws-region">check the AWS region</a>.</p>
+<p><strong>Troubleshooting</strong>: if the AMI does not appear in the list, then <a href="#aws-region">check the AWS region</a>.</p>
 
 <h4>
 <a id="step-312-choose-an-instance-type" class="anchor" href="#step-312-choose-an-instance-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.2: Choose an Instance Type</h4>
@@ -204,7 +214,7 @@
 <h4>
 <a id="step-314-add-storage" class="anchor" href="#step-314-add-storage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.4: Add Storage</h4>
 
-<p><strong>Optional</strong>: you can add an additional drive to contain your private data and code. Rather than doing it here, see <a href="#add-ebs">Add an EBS volume</a>. Click <strong>Next: Tag Instance</strong>.</p>
+<p><strong>Optional</strong>: you are welcome - if required - to add an additional drive to contain your private data and code. This can either be done on this page and/or at a later stage, in which case see <a href="#add-ebs">Add an EBS volume</a>.) Click <strong>Next: Tag Instance.</strong></p>
 
 <h4>
 <a id="step-315-tag-instance" class="anchor" href="#step-315-tag-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.5: Tag Instance</h4>
@@ -226,14 +236,14 @@
 <h3>
 <a id="step-32-connect-to-a-running-instance" class="anchor" href="#step-32-connect-to-a-running-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-connect"></a>Step 3.2: Connect to a running instance</h3>
 
+<p>The username for this machine is <strong>ubuntu</strong>. There is no password, but verification occurs with the Key Pair you created previously.</p>
+
 <p>Instructions on how to connect to the instance via SSH can be found here:</p>
 
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html</a></p>
 
 <p>If you are using Windows and PuTTy, follow these instructions to transform your local key:
 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair</a></p>
-
-<p>The default username for this machine is <strong>ubuntu</strong>. There is no password, but verification occurs with the Key Pair you created previously.</p>
 
 <p><strong>Troubleshooting</strong>: if you cannot connect, then it may be because of the Security Group settings you launched the machine with. Check that they correspond to the ones in <a href="#sg-rules">Table 2</a>. If you opted to not allow access from all IP addresses (i.e., did not select 0.0.0.0/0 in <a href="sg-rules">Table 2</a>), then make sure that the IP address in the Security Group is the same as the IP address of your local machine (visit <a href="http://myipaddress.com">http://myipaddress.com</a> to find out).</p>
 
@@ -264,13 +274,13 @@
 
 <p>In the IPython environment, execute:</p>
 
-<pre><code>from notebook.auth import passwd
-passwd()
+<pre><code>In [1]: from notebook.auth import passwd
+In [2]: passwd()
 </code></pre>
 
 <p>Type your preferred password twice. You will then see an SHA hash of the chosen password such as:</p>
 
-<pre><code>'sha1:328ae2b31aaa:82ecb6479a0d5c9d999c36f7949b26e78c69133e'
+<pre><code>Out [1]: 'sha1:328ae2b31aaa:82ecb6479a0d5c9d999c36f7949b26e78c69133e'
 </code></pre>
 
 <p>Copy-and-paste this to a secure location as we will need it in the following step. Exit the ipython environment by typing <strong>exit()</strong></p>
@@ -293,7 +303,7 @@ passwd()
 <h4>
 <a id="step-343-using-ssl-for-encrypted-communication" class="anchor" href="#step-343-using-ssl-for-encrypted-communication" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ssl-jupyter"></a>Step 3.4.3: Using SSL for encrypted communication</h4>
 
-<p>You must create a self-signed SSL certificate to encrypt the communication to the server:</p>
+<p>You must create a self-signed SSL certificate to encrypt the communication to the server. At the SSH command prompt, type the following:</p>
 
 <pre><code>cd ~/.certificates
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mykey.pem -out mycert.pem
@@ -311,7 +321,12 @@ chmod 400 mykey.pem mycert.pem
 jupyter notebook &amp;
 </code></pre>
 
-<p>The ampersand means that the notebook server is placed in the background. Once you see that the server is running on Port 8998, you can log out of the SSH session, and the server will continue to run in the background until the instance is terminated.</p>
+<p>The ampersand means that the notebook server is placed in the background. Once you see that the server is running on Port 8998, you can logout of the SSH session, and the server will continue to run in the background until the instance is stopped.</p>
+
+<p>The Jupyter server prints status messages to the console. You can also redirect this output to a log file:</p>
+
+<pre><code>jupyter notebook &gt; ~/.jupyter/jupyter_output.log 2&gt;&amp;1 &amp;
+</code></pre>
 
 <h3>
 <a id="step-36-login-to-the-notebook-server" class="anchor" href="#step-36-login-to-the-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Dlogin-jupyter%E2%80%9D/">Step 3.6 Login to the Notebook server</a>
@@ -330,16 +345,22 @@ jupyter notebook &amp;
 <a id="step-37-using-the-notebook-server" class="anchor" href="#step-37-using-the-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Duse-jupyter%E2%80%9D/">Step 3.7: Using the Notebook server</a>
 </h3>
 
-<p>If you started one of the published AMIs which contain the MCMC experiments for specific papers, then under the “Files” tab in the notebook server, you will see the corresponding experiments. Notebook files contain both code and documentation, so please refer to these notebooks for further information.</p>
+<p>Please consider A) or B) below :</p>
+
+<p><em>A) If you started one of the published AMIs which contain the MCMC experiments for specific papers</em></p>
+
+<p>Under the <strong>Files</strong> tab in the notebook server, you will see the corresponding experiments in Notebook files. Notebooks contain both code and documentation, so please refer to these notebooks for further information.</p>
 
 <p>You can start individual notebooks by navigating to one of the folders containing a notebook, and double-clicking it. You can also start a command-line terminal by selecting “New/Terminal” from the right-hand side of the screen. For further information on the notebook server interface, see the <a href="http://jupyter.readthedocs.org/en/latest/">Jupyter</a> documentation. </p>
 
-<p>If you started a “generic” GMH AMI, then you will not see any files listed, but you can install the GMH-Examples.jl package to explore example Julia notebooks and scripts that explain how to use the GMH library. Execute the following git command in a terminal (either via the SSH terminal or a Jupyter Terminal in the browser window):</p>
+<p><em>B) If you started a “generic” GMH AMI</em></p>
+
+<p>You will not see any files listed, but you can install the <strong>GMH-Examples.jl</strong> package to explore example Julia notebooks and scripts that explain how to use the GMH library. Execute the following git command in a terminal (either via the SSH terminal or a Jupyter terminal in the browser window):</p>
 
 <pre><code>git clone https://github.com/QuantifyingUncertainty/GMH-Examples.jl.git
 </code></pre>
 
-<p>The repository is now accessible under the “Files” tab of the notebook server. Please refer to the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a> documentation on how to use this package.</p>
+<p>The repository is now accessible under the <strong>Files</strong> tab of the notebook server. Please refer to the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a> documentation on how to use this package.</p>
 
 <h3>
 <a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and AWS machine</a>

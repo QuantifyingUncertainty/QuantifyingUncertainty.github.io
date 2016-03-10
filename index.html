@@ -33,7 +33,7 @@
       </nav>
       <section>
         <h2>
-<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>Table of Contents</h2>
+<a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
 
 <ol>
 <li><a href="#intro">Introduction</a></li>
@@ -45,7 +45,7 @@
 </ol>
 
 <h2>
-<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
+<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
 
 <p>The <strong>Quantifying Uncertainty</strong> project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm proposed in <a href="#calder14">(Calderhead, 2014)</a>. It forms part of the <a href="http://www.2020science.net/">2020 Science</a> research programme. GMH implements a class of parallelized Monte-Carlo Markov Chains methods (MCMC) that can be used to estimate model parameters of complex physical and biological processes. Details of the GMH algorithm can be found in the scientific publications listed in the <a href="#refs">References</a>.</p>
 
@@ -61,7 +61,7 @@
 <p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Examples to help users to develop their own MCMC simulations are included in another repository, <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a>. The remainder of this documentation outlines how to setup GMH on different platforms. It explains in detail how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 6).</p>
 
 <h3>
-<a id="table-1-acronyms" class="anchor" href="#table-1-acronyms" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="acronyms"></a>Table 1. Acronyms</h3>
+<a id="table-1-acronyms" class="anchor" href="#table-1-acronyms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="acronyms"></a>Table 1. Acronyms</h3>
 
 <table>
 <thead>
@@ -107,10 +107,10 @@
 </table>
 
 <h2>
-<a id="2-aws-setup" class="anchor" href="#2-aws-setup" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-setup"></a>2. AWS Setup</h2>
+<a id="2-aws-setup" class="anchor" href="#2-aws-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-setup"></a>2. AWS Setup</h2>
 
 <h3>
-<a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an AWS account</h3>
+<a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an AWS account</h3>
 
 <p>This step requires a credit card to set up an account and a phone number to receive a security callback. By using Amazon's "Free Tier", it is possible to avoid being billed, but the credit card is still required. Follow the instructions in the AWS documentation:</p>
 
@@ -126,7 +126,7 @@
 </ol>
 
 <h3>
-<a id="table-2-required-security-group-settings" class="anchor" href="#table-2-required-security-group-settings" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="sg-rules"></a>Table 2. Required Security Group Settings</h3>
+<a id="table-2-required-security-group-settings" class="anchor" href="#table-2-required-security-group-settings" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="sg-rules"></a>Table 2. Required Security Group Settings</h3>
 
 <p>When setting up the Security Group, specify the following inbound rules:</p>
 
@@ -166,15 +166,15 @@
 <p>The entire process of setting up an AWS account is likely to take between 1 and 2 hours, depending on your familiarity with AWS. These steps need to be completed only once.</p>
 
 <h3>
-<a id="step-22-check--the-aws-region" class="anchor" href="#step-22-check--the-aws-region" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 2.2: Check  the AWS region</h3>
+<a id="step-22-check--the-aws-region" class="anchor" href="#step-22-check--the-aws-region" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 2.2: Check  the AWS region</h3>
 
 <p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot find the published AMIs listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the GMH AMIs, you need to be logged into the correct region. At this moment, the only region in which the GMH AMIs are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the AWS and EC2 dashboards, between your IAM username and “Support”.</p>
 
 <h2>
-<a id="-3-using-gmh-on-aws" class="anchor" href="#-3-using-gmh-on-aws" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-aws"></a> 3. Using GMH on AWS</h2>
+<a id="-3-using-gmh-on-aws" class="anchor" href="#-3-using-gmh-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-aws"></a> 3. Using GMH on AWS</h2>
 
 <h3>
-<a id="table-3-published-amis" class="anchor" href="#table-3-published-amis" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-pub"></a>Table 3: Published AMIs</h3>
+<a id="table-3-published-amis" class="anchor" href="#table-3-published-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ami-pub"></a>Table 3: Published AMIs</h3>
 
 <table>
 <thead>
@@ -194,49 +194,49 @@
 </table>
 
 <h3>
-<a id="step-31-launch-a-published-ami" class="anchor" href="#step-31-launch-a-published-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="launch-ami"></a>Step 3.1: Launch a published AMI</h3>
+<a id="step-31-launch-a-published-ami" class="anchor" href="#step-31-launch-a-published-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="launch-ami"></a>Step 3.1: Launch a published AMI</h3>
 
 <h4>
-<a id="step-311-choose-an-ami" class="anchor" href="#step-311-choose-an-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.1: Choose an AMI</h4>
+<a id="step-311-choose-an-ami" class="anchor" href="#step-311-choose-an-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.1: Choose an AMI</h4>
 
 <p>Once logged into the AWS dashboard, go to the EC2 console. Select <strong>Instances</strong> in the left-hand menu, and click the <strong>Launch</strong> button at the top of the panel. Select <strong>Community AMIs</strong> from the left-hand menu and in the search box that appears, copy-paste one of the published AMI names from Table 3. Click the <strong>Select</strong> button to launch the AMI.</p>
 
 <p><strong>Troubleshooting</strong>: if the AMI does not appear in the list, then <a href="#aws-region">check the AWS region</a>.</p>
 
 <h4>
-<a id="step-312-choose-an-instance-type" class="anchor" href="#step-312-choose-an-instance-type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.2: Choose an Instance Type</h4>
+<a id="step-312-choose-an-instance-type" class="anchor" href="#step-312-choose-an-instance-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.2: Choose an Instance Type</h4>
 
 <p>Here you select the physical hardware on which to run. To avoid being billed, select an instance labelled with "Free tier eligible" (currently the t2.micro). Click <strong>Next: Configure Instance Details.</strong></p>
 
 <h4>
-<a id="step-313-configure-instance-details" class="anchor" href="#step-313-configure-instance-details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.3: Configure Instance Details</h4>
+<a id="step-313-configure-instance-details" class="anchor" href="#step-313-configure-instance-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.3: Configure Instance Details</h4>
 
 <p>From the "Subnet" drop-down list, select a subnet that corresponds to a particular availability zone, which is important if you will also attach an existing EBS-backed volume to contain your data (this is optional - see Step 3.3 below). Make a note of which availability zone you select (currently <strong>eu-west-1a</strong>, <strong>1b</strong> or <strong>1c</strong>). Choose <strong>Next: Add Storage</strong> at the bottom of the page.</p>
 
 <h4>
-<a id="step-314-add-storage" class="anchor" href="#step-314-add-storage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.4: Add Storage</h4>
+<a id="step-314-add-storage" class="anchor" href="#step-314-add-storage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.4: Add Storage</h4>
 
 <p><strong>Optional</strong>: you are welcome - if required - to add an additional drive to contain your private data and code. This can either be done on this page and/or at a later stage, in which case see <a href="#add-ebs">Add an EBS volume</a>.) Click <strong>Next: Tag Instance.</strong></p>
 
 <h4>
-<a id="step-315-tag-instance" class="anchor" href="#step-315-tag-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.5: Tag Instance</h4>
+<a id="step-315-tag-instance" class="anchor" href="#step-315-tag-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.5: Tag Instance</h4>
 
 <p><strong>Optional</strong>: add descriptive tags for your instance. Then click <strong>Next: Configure Security Group</strong>.</p>
 
 <h4>
-<a id="step-316-configure-security-group" class="anchor" href="#step-316-configure-security-group" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.6: Configure Security Group</h4>
+<a id="step-316-configure-security-group" class="anchor" href="#step-316-configure-security-group" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.6: Configure Security Group</h4>
 
 <p>Select the radio button <strong>Select an existing security group</strong> and select the Security Group for IJulia access that you made in <a href="#sg-rules">Step 2.1</a>. Click <strong>Next: Review and Launch</strong>.</p>
 
 <h4>
-<a id="step-317-review-and-launch" class="anchor" href="#step-317-review-and-launch" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 3.1.7: Review and Launch</h4>
+<a id="step-317-review-and-launch" class="anchor" href="#step-317-review-and-launch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.7: Review and Launch</h4>
 
 <p>It is safe to ignore the warning that the Security Group is open to the world (if the security steps outlined in Step 3.4 are adhered to). Click <strong>Launch</strong> at the bottom of the page. A pop-up window comes up. If you previously made a Key Pair, select <strong>Choose an existing key pair</strong>. Otherwise select <strong>Create a new key pair</strong> and make sure to download the private key to a safe location on your local machine.</p>
 
 <p>Click <strong>Launch Instances</strong>. On the next window, <strong>Launch Status</strong>, click <strong>View Instances</strong>, which takes you to the Instances page. Once the <strong>Instance State</strong> becomes green and says <strong>running</strong>, you can connect via SSH. </p>
 
 <h3>
-<a id="step-32-connect-to-a-running-instance" class="anchor" href="#step-32-connect-to-a-running-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-connect"></a>Step 3.2: Connect to a running instance</h3>
+<a id="step-32-connect-to-a-running-instance" class="anchor" href="#step-32-connect-to-a-running-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ami-connect"></a>Step 3.2: Connect to a running instance</h3>
 
 <p>The username for this machine is <strong>ubuntu</strong>. There is no password, but verification occurs with the Key Pair you created previously.</p>
 
@@ -250,7 +250,7 @@
 <p><strong>Troubleshooting</strong>: if you cannot connect, then it may be because of the Security Group settings you launched the machine with. Check that they correspond to the ones in <a href="#sg-rules">Table 2</a>. If you opted to not allow access from all IP addresses (i.e., did not select 0.0.0.0/0 in <a href="sg-rules">Table 2</a>), then make sure that the IP address in the Security Group is the same as the IP address of your local machine (visit <a href="http://myipaddress.com">http://myipaddress.com</a> to find out).</p>
 
 <h3>
-<a id="step-33-add-an-ebs-volume" class="anchor" href="#step-33-add-an-ebs-volume" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="add-ebs"></a>Step 3.3: Add an EBS Volume</h3>
+<a id="step-33-add-an-ebs-volume" class="anchor" href="#step-33-add-an-ebs-volume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="add-ebs"></a>Step 3.3: Add an EBS Volume</h3>
 
 <p><strong>Optional</strong>: you can add additional storage to hold your data and experiments by following these instructions: </p>
 
@@ -264,10 +264,10 @@
 <p>If you create an EBS volume, limit the size to a few GB as the Free Tier only comes with 30GB of free storage for all volumes combined.</p>
 
 <h3>
-<a id="step-34-secure-the-notebook-server" class="anchor" href="#step-34-secure-the-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="secure-jupyter"></a>Step 3.4: Secure the Notebook server</h3>
+<a id="step-34-secure-the-notebook-server" class="anchor" href="#step-34-secure-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="secure-jupyter"></a>Step 3.4: Secure the Notebook server</h3>
 
 <h4>
-<a id="step-341-prepare-a-hashed-password" class="anchor" href="#step-341-prepare-a-hashed-password" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="password-jupyter"></a>Step 3.4.1: Prepare a Hashed Password</h4>
+<a id="step-341-prepare-a-hashed-password" class="anchor" href="#step-341-prepare-a-hashed-password" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="password-jupyter"></a>Step 3.4.1: Prepare a Hashed Password</h4>
 
 <p>At the SSH command prompt, type:</p>
 
@@ -290,7 +290,7 @@ In [2]: passwd()
 <p><strong>Important</strong>: select a secure password, consisting preferably of 3 unconnected words, e.g., "apple-spring-saxophone". If the password you select here is not secure, then your AWS server is vulnerable to attack as the Notebook server allows any system command to be executed via a web browser.</p>
 
 <h4>
-<a id="step-342-add-the-hashed-password-to-your-notebook-configuration-file" class="anchor" href="#step-342-add-the-hashed-password-to-your-notebook-configuration-file" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="password-file"></a>Step 3.4.2: Add the hashed password to your Notebook configuration file</h4>
+<a id="step-342-add-the-hashed-password-to-your-notebook-configuration-file" class="anchor" href="#step-342-add-the-hashed-password-to-your-notebook-configuration-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="password-file"></a>Step 3.4.2: Add the hashed password to your Notebook configuration file</h4>
 
 <p>Add your own SHA password to the file <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong>:</p>
 
@@ -303,7 +303,7 @@ In [2]: passwd()
 </code></pre>
 
 <h4>
-<a id="step-343-using-ssl-for-encrypted-communication" class="anchor" href="#step-343-using-ssl-for-encrypted-communication" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ssl-jupyter"></a>Step 3.4.3: Using SSL for encrypted communication</h4>
+<a id="step-343-using-ssl-for-encrypted-communication" class="anchor" href="#step-343-using-ssl-for-encrypted-communication" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ssl-jupyter"></a>Step 3.4.3: Using SSL for encrypted communication</h4>
 
 <p>You must create a self-signed SSL certificate to encrypt the communication to the server. At the SSH command prompt, type the following:</p>
 
@@ -315,7 +315,7 @@ chmod 400 mykey.pem mycert.pem
 <p>Press enter to accept all the default values. Please keep the locations and names of the key file and certificate file as above because the <strong>jupyter_notebook_config.py</strong> file has been pre-configured to find the files in that location.</p>
 
 <h3>
-<a id="step-35-launch-a-notebook-server" class="anchor" href="#step-35-launch-a-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="launch-jupyter"></a>Step 3.5: Launch a Notebook server</h3>
+<a id="step-35-launch-a-notebook-server" class="anchor" href="#step-35-launch-a-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="launch-jupyter"></a>Step 3.5: Launch a Notebook server</h3>
 
 <p>On the SSH command line, you can start the Notebook server:</p>
 
@@ -331,7 +331,7 @@ jupyter notebook &amp;
 </code></pre>
 
 <h3>
-<a id="step-36-login-to-the-notebook-server" class="anchor" href="#step-36-login-to-the-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Dlogin-jupyter%E2%80%9D/">Step 3.6 Login to the Notebook server</a>
+<a id="step-36-login-to-the-notebook-server" class="anchor" href="#step-36-login-to-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dlogin-jupyter%E2%80%9D/">Step 3.6 Login to the Notebook server</a>
 </h3>
 
 <p>To connect to the Notebook server via your browser, get the public IP address of your running instance from the EC2 console (the “Instances” page) and type it in the address bar of your web browser. Make sure to use <strong>https</strong> to connect (rather than plain <strong>http</strong>).</p>
@@ -344,7 +344,7 @@ jupyter notebook &amp;
 <p>You are now at the notebook server login page. Type the plain text password you <a href="#password-jupyter">created above</a>. </p>
 
 <h3>
-<a id="step-37-using-the-notebook-server" class="anchor" href="#step-37-using-the-notebook-server" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Duse-jupyter%E2%80%9D/">Step 3.7: Using the Notebook server</a>
+<a id="step-37-using-the-notebook-server" class="anchor" href="#step-37-using-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Duse-jupyter%E2%80%9D/">Step 3.7: Using the Notebook server</a>
 </h3>
 
 <p>Please consider A) or B) below :</p>
@@ -365,7 +365,7 @@ jupyter notebook &amp;
 <p>The repository is now accessible under the <strong>Files</strong> tab of the notebook server. Please refer to the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples.jl</a> documentation on how to use this package.</p>
 
 <h3>
-<a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and AWS machine</a>
+<a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and AWS machine</a>
 </h3>
 
 <p>When finished, there are multiple levels of halting/terminating the Notebook server and AWS machine:</p>
@@ -378,28 +378,28 @@ jupyter notebook &amp;
 </ol>
 
 <h2>
-<a id="-4-using-gmh-in-juliabox" class="anchor" href="#-4-using-gmh-in-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-box"></a> 4. Using GMH in JuliaBox</h2>
+<a id="-4-using-gmh-in-juliabox" class="anchor" href="#-4-using-gmh-in-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-box"></a> 4. Using GMH in JuliaBox</h2>
 
 <h3>
-<a id="step-41-sign-in-to-juliabox" class="anchor" href="#step-41-sign-in-to-juliabox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.1: Sign in to JuliaBox</h3>
+<a id="step-41-sign-in-to-juliabox" class="anchor" href="#step-41-sign-in-to-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.1: Sign in to JuliaBox</h3>
 
 <p>Go to <a href="https://juliabox.org">https://juliabox.org</a> and sign in with your Google credentials.</p>
 
 <h3>
-<a id="step-42-install-the-generalizedmetropolishastingsjl-package" class="anchor" href="#step-42-install-the-generalizedmetropolishastingsjl-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.2: Install the GeneralizedMetropolisHastings.jl package.</h3>
+<a id="step-42-install-the-generalizedmetropolishastingsjl-package" class="anchor" href="#step-42-install-the-generalizedmetropolishastingsjl-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.2: Install the GeneralizedMetropolisHastings.jl package.</h3>
 
-<p>At the top of the JuliaBox window, select <strong>Terminal</strong>. Execute the following command to install GMH for the Julia v0.3.11 installation of JuliaBox (the currently preferred version for GMH). This will install GMH in the package folder <strong>/home/juser/.julia/0.3</strong>.</p>
+<p>At the top of the JuliaBox window, select <strong>Terminal</strong>. Execute the following command to install GMH for the Julia v0.4.3 installation of JuliaBox (the currently preferred version for GMH). This will install GMH in the package folder <strong>/home/juser/.julia/0.4</strong>.</p>
 
-<pre><code>/opt/julia-0.3.11/bin/julia -e ‘Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")’
+<pre><code>/opt/julia-0.4.3/bin/julia -e ‘Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")’
 </code></pre>
 
 <p>You can test if GMH installed correctly and is compatible with this particular JuliaBox installation by running the GMH tests:</p>
 
-<pre><code>/opt/julia-0.3.11/bin/julia -e ‘include(normpath(Pkg.dir("GeneralizedMetropolisHastings"),"test/runtests.jl"))’
+<pre><code>/opt/julia-0.4.3/bin/julia -e ‘Pkg.test("GeneralizedMetropolisHastings")’
 </code></pre>
 
 <h3>
-<a id="step-43-sync-the-gmh-examples-repository" class="anchor" href="#step-43-sync-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 4.3 Sync the GMH-Examples repository</h3>
+<a id="step-43-sync-the-gmh-examples-repository" class="anchor" href="#step-43-sync-the-gmh-examples-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.3 Sync the GMH-Examples repository</h3>
 
 <p>Sync the GMH-Examples.jl repository from GitHub to your JuliaBox home folder. At the top of the JuliaBox window, select <strong>Sync</strong>.  Add the following repository to the “Git Repositories”.</p>
 
@@ -410,15 +410,15 @@ jupyter notebook &amp;
 <p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples-jl</a> repository for details of how to use it.</p>
 
 <h1>
-<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>5. Using GMH locally</h1>
+<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>5. Using GMH locally</h1>
 
 <h3>
-<a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>
+<a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>
 
 <p>Install Julia from <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/">Juno</a> is recommended.</p>
 
 <h3>
-<a id="step-52-install-the-gmh-package" class="anchor" href="#step-52-install-the-gmh-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.2: Install the GMH package</h3>
+<a id="step-52-install-the-gmh-package" class="anchor" href="#step-52-install-the-gmh-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.2: Install the GMH package</h3>
 
 <p>Start Julia and execute the following commands:</p>
 
@@ -433,25 +433,25 @@ jupyter notebook &amp;
 </code></pre>
 
 <h3>
-<a id="step-53-install-the-gmh-examples-repository" class="anchor" href="#step-53-install-the-gmh-examples-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 5.3 Install the GMH-Examples repository</h3>
+<a id="step-53-install-the-gmh-examples-repository" class="anchor" href="#step-53-install-the-gmh-examples-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.3 Install the GMH-Examples repository</h3>
 
 <p>Install the GMH-Examples.jl repository from GitHub in a local folder. Instructions on how to do this for your platform can be found on <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GitHub</a>. </p>
 
 <p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMH-Examples-jl</a> repository on how to use it.</p>
 
 <h2>
-<a id="6-configure-amis-with-gmh" class="anchor" href="#6-configure-amis-with-gmh" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>6. Configure AMIs with GMH</h2>
+<a id="6-configure-amis-with-gmh" class="anchor" href="#6-configure-amis-with-gmh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-setup"></a>6. Configure AMIs with GMH</h2>
 
 <h3>
-<a id="61-ami-with-julia-v0311" class="anchor" href="#61-ami-with-julia-v0311" aria-hidden="true"><span class="octicon octicon-link"></span></a><a name="ami-julia0.3"></a>6.1 AMI with Julia v0.3.11</h3>
+<a id="61-ami-with-julia-v0311" class="anchor" href="#61-ami-with-julia-v0311" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ami-julia0.3"></a>6.1 AMI with Julia v0.3.11</h3>
 
 <h4>
-<a id="step-611-launch-and-connect-to-a-fresh-ec2-instance" class="anchor" href="#step-611-launch-and-connect-to-a-fresh-ec2-instance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.1.1 Launch and connect to a fresh EC2 instance</h4>
+<a id="step-611-launch-and-connect-to-a-fresh-ec2-instance" class="anchor" href="#step-611-launch-and-connect-to-a-fresh-ec2-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.1.1 Launch and connect to a fresh EC2 instance</h4>
 
 <p>Follow the instructions of [Step 3.1](#launch-ami] and <a href="#ami-connect">Step 3.2</a>, but rather than selecting a published AMI via the Community AMIs start from a Ubuntu Server 14.04LTS.</p>
 
 <h4>
-<a id="step-612-install-julia-03-currently-0311" class="anchor" href="#step-612-install-julia-03-currently-0311" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.1.2 Install Julia 0.3 (currently 0.3.11)</h4>
+<a id="step-612-install-julia-03-currently-0311" class="anchor" href="#step-612-install-julia-03-currently-0311" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.1.2 Install Julia 0.3 (currently 0.3.11)</h4>
 
 <pre><code>sudo add-apt-repository ppa:staticfloat/julia-deps
 sudo add-apt-repository ppa:staticfloat/juliareleases
@@ -463,7 +463,7 @@ sudo apt-get -y install julia0.3
 <p>The <strong>build-essential</strong> package contains essential build tools that Julia needs to build some of its own packages. If the installation was successful, then it is now possible to run Julia at the command prompt. You can test this by typing <strong>julia</strong>. Exit from Julia by typing <strong>exit()</strong>.</p>
 
 <h4>
-<a id="step-713-install-gmh-ijulia-and-additional-julia-packages" class="anchor" href="#step-713-install-gmh-ijulia-and-additional-julia-packages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 7.1.3 Install GMH, IJulia and additional Julia packages</h4>
+<a id="step-713-install-gmh-ijulia-and-additional-julia-packages" class="anchor" href="#step-713-install-gmh-ijulia-and-additional-julia-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.3 Install GMH, IJulia and additional Julia packages</h4>
 
 <pre><code>julia -e 'Pkg.clone("git://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl")'
 </code></pre>
@@ -474,7 +474,7 @@ sudo apt-get -y install julia0.3
 </code></pre>
 
 <h4>
-<a id="step-614-prepare-the-ijulia-notebook-server-for-remote-access" class="anchor" href="#step-614-prepare-the-ijulia-notebook-server-for-remote-access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.1.4 Prepare the IJulia Notebook server for remote access</h4>
+<a id="step-614-prepare-the-ijulia-notebook-server-for-remote-access" class="anchor" href="#step-614-prepare-the-ijulia-notebook-server-for-remote-access" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.1.4 Prepare the IJulia Notebook server for remote access</h4>
 
 <p>Create a file <strong>/home/ubuntu/.jupyter/jupyter_notebook_config.py</strong> with the following lines:</p>
 
@@ -499,7 +499,7 @@ c.NotebookApp.password = u''
 </code></pre>
 
 <h4>
-<a id="step-615-create-the-ami" class="anchor" href="#step-615-create-the-ami" aria-hidden="true"><span class="octicon octicon-link"></span></a>Step 6.1.5 Create the AMI</h4>
+<a id="step-615-create-the-ami" class="anchor" href="#step-615-create-the-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.1.5 Create the AMI</h4>
 
 <p>Before creating the AMI, you must remove the SSH key with which the instance was started, as well as any command line histories:</p>
 
@@ -519,7 +519,7 @@ sudo find /home/ubuntu/.ssh/authorized_keys -exec rm -f {} \;
 <p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html</a></p>
 
 <h2>
-<a id="7-references-" class="anchor" href="#7-references-" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. References <a name="refs"></a>
+<a id="7-references-" class="anchor" href="#7-references-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. References <a name="refs"></a>
 </h2>
 
 <p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>

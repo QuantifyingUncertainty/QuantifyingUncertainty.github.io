@@ -39,10 +39,10 @@
 <li><a href="#intro">Introduction</a></li>
 <li><a href="#aws-setup">Setting up for Amazon Web Services</a></li>
 <li><a href="#gmh-on-aws">Using Generalized Metropolis-Hastings on AWS</a></li>
-<li><a href="#gmh-on-box">Using Generalized Metropolis-Hastings on JuliaBox</a></li>
+<li><a href="#gmh-on-juliabox">Using Generalized Metropolis-Hastings on JuliaBox</a></li>
 <li><a href="#gmh-on-local">Using Generalized Metropolis-Hastings on local machine</a></li>
 <li><a href="#aws-cluster-setup">Configuring an AWS multi-machine cluster</a></li>
-<li><a href="#gmh-ami-setup">Configuring Amazon Machine Images with Generalized Metropolis-Hastings</a></li>
+<li><a href="#gmh-ami">Configuring Amazon Machine Images with Generalized Metropolis-Hastings</a></li>
 </ol>
 
 <h2>
@@ -59,7 +59,9 @@
 <li>To use the GMH library to define your own MCMC experiments. In addition to using GMH on AWS, alternative ways are to download the GMH repository from GitHub to your local machine or to work via <a href="http://juliabox.org">JuliaBox</a>. </li>
 </ol>
 
-<p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Model-specific code resides in <a href="https://github.com/QuantifyingUncertainty/GMHModels.jl">GMHModels.jl</a>.Example scripts and notebooks to help users develop their own MCMC simulations are included in <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl">GMHExamples.jl</a>. The remainder of this documentation outlines how to setup GMH on different platforms. It explains in detail how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5), how to prepare AWS to run GMH on a cluster of machines (Section 6) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 7).</p>
+<p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Example models, scripts and notebooks to help users develop their own MCMC simulations are included in <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl">GMHExamples.jl</a>. </p>
+
+<p>The remainder of this documentation outlines how to setup GMH on different platforms. It explains how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5), how to prepare AWS to run GMH on a cluster of machines (Section 6) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 7).</p>
 
 <h3>
 <a id="table-1-acronyms" class="anchor" href="#table-1-acronyms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="acronyms"></a>Table 1. Acronyms</h3>
@@ -188,7 +190,7 @@
 <tbody>
 <tr>
 <td align="left">GMH-JULIA0.4-PHOTO</td>
-<td align="left">GMHPhotoReceptor</td>
+<td align="left">Contains all code to run GMHPhotoReceptor models</td>
 <td align="left"><a href="#calder14">(Calderhead,2014)</a></td>
 </tr>
 </tbody>
@@ -310,22 +312,9 @@
 <a id="step-37-using-the-notebook-server" class="anchor" href="#step-37-using-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Duse-jupyter%E2%80%9D/">Step 3.7: Using the Notebook server</a>
 </h3>
 
-<p>Please consider A) or B) below :</p>
-
-<p><em>A) If you started one of the published AMIs which contain the MCMC experiments for specific papers</em></p>
-
-<p>Under the <strong>Files</strong> tab in the notebook server, you will see the corresponding experiments in Notebook files. Notebooks contain both code and documentation, so please refer to these notebooks for further information.</p>
+<p>Under the <strong>Files</strong> tab in the notebook server, you will see repositories with example experiments in IJUlia Notebooks. Notebooks contain both code and documentation, so please refer to these notebooks for further information.</p>
 
 <p>You can start individual notebooks by navigating to one of the folders containing a notebook, and double-clicking it. You can also start a command-line terminal by selecting “New/Terminal” from the right-hand side of the screen. For further information on the notebook server interface, see the <a href="http://jupyter.readthedocs.org/en/latest/">Jupyter</a> documentation. </p>
-
-<p><em>B) If you started a “generic” GMH AMI</em></p>
-
-<p>You will not see any files listed, but you can install the <strong>GMHExamples.jl</strong> package to explore example Julia notebooks and scripts that explain how to use the GMH library. Execute the following git command in a terminal (either via the SSH terminal or a Jupyter terminal in the browser window):</p>
-
-<pre><code>git clone https://github.com/QuantifyingUncertainty/GMHExamples.jl.git
-</code></pre>
-
-<p>The repository is now accessible under the <strong>Files</strong> tab of the notebook server. Please refer to the <a href="https://github.com/QuantifyingUncertainty/GMH-Examples.jl">GMHExamples.jl</a> documentation on how to use this package.</p>
 
 <h3>
 <a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and AWS machine</a>
@@ -561,7 +550,7 @@ sudo apt-get -y install git
 
 <p>It will also run the tests of the GeneralizedMetropolisHastings package in Julia. These tests should normally pass, but the installation is allowed to continue in case they fail.</p>
 
-<p>The last line printed by the script will indicate whether the installation process was successful or not.</p>
+<p>The last line printed by the script will indicate whether the installation process was successful.</p>
 
 <h3>
 <a id="72-prepare-an-ami-for-publishing" class="anchor" href="#72-prepare-an-ami-for-publishing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-publish"></a>7.2 Prepare an AMI for publishing</h3>

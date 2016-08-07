@@ -37,11 +37,11 @@
 
 <ol>
 <li><a href="#1-introduction">Introduction</a></li>
-<li><a href="#2-aws-setup">Setting up for Amazon Web Services</a></li>
+<li><a href="#2-configuring-aws">Setting up for Amazon Web Services</a></li>
 <li><a href="#3-using-gmh-on-aws">Using Generalized Metropolis-Hastings on AWS</a></li>
 <li><a href="#4-using-gmh-on-juliabox">Using Generalized Metropolis-Hastings on JuliaBox</a></li>
-<li><a href="#5-using-gmh-on-local">Using Generalized Metropolis-Hastings locally</a></li>
-<li><a href="#6-preparing-an-aws-cluster-setup">Configuring an AWS multi-machine cluster</a></li>
+<li><a href="#5-using-gmh-locally">Using Generalized Metropolis-Hastings locally</a></li>
+<li><a href="#6-preparing-an-aws-cluster">Preparing an AWS multi-machine cluster</a></li>
 <li><a href="#7-configuring-gmh-amis">Configuring Amazon Machine Images with Generalized Metropolis-Hastings</a></li>
 <li><a href="#8-references">References</a></li>
 </ol>
@@ -111,7 +111,7 @@
 </table>
 
 <h2>
-<a id="2-configure-aws" class="anchor" href="#2-configure-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Configure AWS</h2>
+<a id="2-configuring-aws" class="anchor" href="#2-configuring-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Configuring AWS</h2>
 
 <h3>
 <a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an AWS account</h3>
@@ -349,7 +349,7 @@
 </code></pre>
 
 <h3>
-<a id="step-43-install-update-and-test-generalizedmetropolishastingsjl" class="anchor" href="#step-43-install-update-and-test-generalizedmetropolishastingsjl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dinstall-on-juliabox%E2%80%9D/">Step 4.3: Install, update and test GeneralizedMetropolisHastings.jl.</a>
+<a id="step-43-install-update-and-test-generalizedmetropolishastingsjl-" class="anchor" href="#step-43-install-update-and-test-generalizedmetropolishastingsjl-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.3: Install, update and test GeneralizedMetropolisHastings.jl <a name="%E2%80%9Dinstall-on-juliabox%E2%80%9D/"></a>
 </h3>
 
 <p>If this is the first time you are using the GMH module in your JuliaBox, you will need to install the required packages by executing at the Julia command prompt:</p>
@@ -377,8 +377,10 @@
 
 <p>Sync repositories with examples from GitHub to your JuliaBox home folder. At the top of the JuliaBox window, select <strong>Sync</strong>.  Add the following to the “Git Repositories”.</p>
 
-<p>-<a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl.git">https://github.com/QuantifyingUncertainty/GMHExamples.jl.git</a>
--<a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git">https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git</a></p>
+<ul>
+<li><a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl.git">https://github.com/QuantifyingUncertainty/GMHExamples.jl.git</a></li>
+<li><a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git">https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git</a></li>
+</ul>
 
 <p>Paste the above https URLs into the “Git Clone URL”. Accept “master” as branch, "GMHExamples.jl" (or "GMHPhotoReceptor.jl") as location, and press "+" to add the repository. This will now download the package to the specified location. </p>
 
@@ -394,8 +396,8 @@
 
 <p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing <strong>cat ~/.juliarc.jl</strong> in the terminal window.</p>
 
-<h1>
-<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using GMH locally</h1>
+<h2>
+<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using GMH locally</h2>
 
 <h3>
 <a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>

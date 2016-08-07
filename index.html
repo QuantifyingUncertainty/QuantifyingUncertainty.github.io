@@ -36,17 +36,18 @@
 <a id="table-of-contents" class="anchor" href="#table-of-contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table of Contents</h2>
 
 <ol>
-<li><a href="#intro">Introduction</a></li>
-<li><a href="#aws-setup">Setting up for Amazon Web Services</a></li>
-<li><a href="#gmh-on-aws">Using Generalized Metropolis-Hastings on AWS</a></li>
-<li><a href="#gmh-on-juliabox">Using Generalized Metropolis-Hastings on JuliaBox</a></li>
-<li><a href="#gmh-on-local">Using Generalized Metropolis-Hastings on local machine</a></li>
-<li><a href="#aws-cluster-setup">Configuring an AWS multi-machine cluster</a></li>
-<li><a href="#gmh-ami">Configuring Amazon Machine Images with Generalized Metropolis-Hastings</a></li>
+<li><a href="#1-introduction">Introduction</a></li>
+<li><a href="#2-aws-setup">Setting up for Amazon Web Services</a></li>
+<li><a href="#3-using-gmh-on-aws">Using Generalized Metropolis-Hastings on AWS</a></li>
+<li><a href="#4-using-gmh-on-juliabox">Using Generalized Metropolis-Hastings on JuliaBox</a></li>
+<li><a href="#5-using-gmh-on-local">Using Generalized Metropolis-Hastings locally</a></li>
+<li><a href="#6-preparing-an-aws-cluster-setup">Configuring an AWS multi-machine cluster</a></li>
+<li><a href="#7-configuring-gmh-amis">Configuring Amazon Machine Images with Generalized Metropolis-Hastings</a></li>
+<li><a href="#8-references">References</a></li>
 </ol>
 
 <h2>
-<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="intro"></a>1. Introduction</h2>
+<a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Introduction</h2>
 
 <p>The <strong>Quantifying Uncertainty</strong> project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm proposed in <a href="#calder14">(Calderhead, 2014)</a>. It forms part of the <a href="http://www.2020science.net/">2020 Science</a> research programme. GMH implements a class of parallelized Monte-Carlo Markov Chains methods (MCMC) that can be used to estimate model parameters of complex physical and biological processes. Details of the GMH algorithm can be found in the scientific publications listed in the <a href="#refs">References</a>.</p>
 
@@ -110,7 +111,7 @@
 </table>
 
 <h2>
-<a id="2-aws-setup" class="anchor" href="#2-aws-setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-setup"></a>2. AWS Setup</h2>
+<a id="2-configure-aws" class="anchor" href="#2-configure-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Configure AWS</h2>
 
 <h3>
 <a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an AWS account</h3>
@@ -174,7 +175,7 @@
 <p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot find the published AMIs listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the GMH AMIs, you need to be logged into the correct region. At this moment, the only region in which the GMH AMIs are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the AWS and EC2 dashboards, between your IAM username and “Support”.</p>
 
 <h2>
-<a id="-3-using-gmh-on-aws" class="anchor" href="#-3-using-gmh-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-aws"></a> 3. Using GMH on AWS</h2>
+<a id="3using-gmh-on-aws" class="anchor" href="#3using-gmh-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.Using GMH on AWS</h2>
 
 <h3>
 <a id="table-3-published-amis" class="anchor" href="#table-3-published-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-published-amis"></a>Table 3: Published AMIs</h3>
@@ -330,7 +331,7 @@
 </ol>
 
 <h2>
-<a id="-4-using-gmh-in-juliabox" class="anchor" href="#-4-using-gmh-in-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-juliabox"></a> 4. Using GMH in JuliaBox</h2>
+<a id="4-using-gmh-on-juliabox" class="anchor" href="#4-using-gmh-on-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Using GMH on JuliaBox</h2>
 
 <h3>
 <a id="step-41-sign-in-to-juliabox" class="anchor" href="#step-41-sign-in-to-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.1: Sign in to JuliaBox</h3>
@@ -397,7 +398,7 @@
 </code></pre>
 
 <h1>
-<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-on-local"></a>5. Using GMH locally</h1>
+<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using GMH locally</h1>
 
 <h3>
 <a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>
@@ -427,7 +428,7 @@
 <p><strong>juliarc.jl</strong> should reside in your home folder, which is system dependent. On Windows, this is usually <strong>C:\users\yourname</strong>.</p>
 
 <h2>
-<a id="6-prepare-an-aws-cluster" class="anchor" href="#6-prepare-an-aws-cluster" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-cluster-setup"></a>6. Prepare an AWS cluster</h2>
+<a id="6-preparing-an-aws-cluster" class="anchor" href="#6-preparing-an-aws-cluster" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Preparing an AWS cluster</h2>
 
 <h3>
 <a id="61-get-aws-access-keys" class="anchor" href="#61-get-aws-access-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-access-keys"></a>6.1 Get AWS Access Keys</h3>
@@ -513,7 +514,7 @@ julia&gt; include("test/runtests.jl")
 <p>You can now launch the Jupyter/IJulia server as explained in <a href="launch-jupyter">Step 3.5</a>. You are now ready to run scripts on the cluster.</p>
 
 <h2>
-<a id="7-configure-and-publish-gmh-amis" class="anchor" href="#7-configure-and-publish-gmh-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami"></a>7. Configure and Publish GMH AMIs</h2>
+<a id="7-configuring-gmh-amis" class="anchor" href="#7-configuring-gmh-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Configuring GMH AMIs</h2>
 
 <h3>
 <a id="71-configure-an-ami-with-julia-and-gmh" class="anchor" href="#71-configure-an-ami-with-julia-and-gmh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-config"></a>7.1 Configure an AMI with Julia and GMH</h3>
@@ -591,7 +592,7 @@ sudo apt-get -y install git
 <p>You will be asked for your GitHub username and password.</p>
 
 <h2>
-<a id="8-references" class="anchor" href="#8-references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="refs"></a>8. References</h2>
+<a id="8-references" class="anchor" href="#8-references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8. References</h2>
 
 <p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
       </section>

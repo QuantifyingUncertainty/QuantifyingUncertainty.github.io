@@ -387,15 +387,12 @@
 <h3>
 <a id="step-45-set-the-julia-search-path" class="anchor" href="#step-45-set-the-julia-search-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.5 Set the Julia search path</h3>
 
-<p>Add the path to the <strong>GMHPhotoReceptor.jl</strong> module file to <strong>~/.juliarc.jl</strong> by executing the following command:</p>
+<p>Add the path to the <strong>GMHPhotoReceptor.jl</strong> module file to <strong>~/.juliarc.jl</strong> by executing the following command in the terminal window.</p>
 
-<pre><code>echo 'push!(LOAD_PATH,"/home/juser/GMHPhotoReceptor.jl")' &gt; .juliarc.jl
+<pre><code>juser@juliabox:~$ echo 'push!(LOAD_PATH,"/home/juser/GMHPhotoReceptor.jl")' &gt; .juliarc.jl
 </code></pre>
 
-<p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing:</p>
-
-<pre><code>cat ~/.juliarc.jl
-</code></pre>
+<p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing <strong>cat ~/.juliarc.jl</strong> in the terminal window.</p>
 
 <h1>
 <a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using GMH locally</h1>

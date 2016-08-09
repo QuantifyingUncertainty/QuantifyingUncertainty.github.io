@@ -438,6 +438,8 @@
 
 <p>Make sure to download the credentials to your local machine and store them in a secure location. Typically, this step needs to be executed only once.</p>
 
+<p>Note: if you see in your security credentials that you have an AWS Access Key, but did not create this yourself,did not download the Secret Access Key ID, or lost the Secret Access Key ID, you will have to create a new one as outlined in the documentation above. In that case, you can also delete the existing AWS Access Key as you won't be able to use it. </p>
+
 <h3>
 <a id="62-start-the-master-server" class="anchor" href="#62-start-the-master-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2 Start the Master server</h3>
 
@@ -453,7 +455,7 @@
 <pre><code>GMHConfigure/gmh-cluster/config.sh
 </code></pre>
 
-<p>The script will ask for your <a href="#aws-access-keys">AWS Access Keys</a> and region. The default region is currently <strong>eu-west-1</strong>. </p>
+<p>The script asks for your <a href="#aws-access-keys">AWS Access Keys</a> and region. The default region is currently <strong>eu-west-1</strong>. </p>
 
 <p>The script creates a Key Pair for password-less login over SSH, saves the private key to a secure location on the master server, and adds the public key to your AWS console. The name of the key is <strong>julia-cluster-access-xxx.xxx.xxx.xxx</strong> with xxx standing for the private IP address of the cluster.</p>
 

@@ -468,12 +468,16 @@
 
 <p>Go to the instances page, select the launching instance, and in the <strong>Description</strong> tab in the bottom half of the page, note down the <strong>Private IPs</strong>. </p>
 
-<p>You should test that passwordless SSH access to this worker is set up correctly by executing in your existing SSH terminal session:</p>
+<p>You should test that passwordless SSH access to this worker is set up correctly by executing in your existing SSH terminal session. </p>
 
 <pre><code>ssh ubuntu@xxx.xxx.xxx.xxx
 </code></pre>
 
-<p>where <strong>xxx.xxx.xxx.xxx</strong> is the private IP address you obtained from the AWS console. If you have followed all steps, this command should log you into the worker machine. Type <strong>exit</strong> to log out from your internal SSH session and return to the original SSH session.</p>
+<p>where <strong>xxx.xxx.xxx.xxx</strong> is the private IP address you obtained from the AWS console. </p>
+
+<p>If you have followed all steps, this command should log into the slave machine. This step also results in the SSH key being added to the list of known hosts and is required before automatic SSH login can work inside Julia. </p>
+
+<p>Type <strong>exit</strong> to log out from your internal SSH session and return to the original SSH session.</p>
 
 <h3>
 <a id="step-65-check-addprocs-in-julia" class="anchor" href="#step-65-check-addprocs-in-julia" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.5 Check addprocs() in Julia</h3>
@@ -514,7 +518,7 @@ julia&gt; include("test/runtests.jl")
 
 <p>Close the julia session by typing <strong>exit()</strong>.</p>
 
-<p>You can now launch the Jupyter/IJulia server as explained in <a href="launch-jupyter">Step 3.5</a>. You are now ready to run scripts on the cluster.</p>
+<p>You can now launch the Jupyter/IJulia server as explained in <a href="#gmh-server-config">Step 3.4</a> and  <a href="#launch-jupyter">Step 3.5</a>. You are now ready to run Julia scripts and notebooks on the cluster.</p>
 
 <h2>
 <a id="7-configuring-gmh-amis" class="anchor" href="#7-configuring-gmh-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Configuring GMH AMIs</h2>

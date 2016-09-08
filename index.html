@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Quantifying Uncertainty using the Generalized Metropolis-Hastings algorithm on Amazon Web Services" />
+    <meta name="keywords" content="Uncertainty, Quantification, Metropolis-Hastings" />
+    <meta name="author" content="Kris De Meyer">
     <title>Quantifyinguncertainty.GitHub.io by QuantifyingUncertainty</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-dark.css">
@@ -24,7 +27,7 @@
       <div id="banner">
         <span id="logo"></span>
 
-        <a href="https://github.com/QuantifyingUncertainty" class="button fork"><strong>View On GitHub</strong></a>
+        <a href="https://github.com/QuantifyingUncertainty" class="button fork" target="_blank"><strong>View On GitHub</strong></a>
       </div><!-- end banner -->
 
     <div class="wrapper">
@@ -49,20 +52,20 @@
 <h2>
 <a id="1-introduction" class="anchor" href="#1-introduction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. Introduction</h2>
 
-<p>The <strong>Quantifying Uncertainty</strong> project develops code, examples and documentation for the Generalized Metropolis-Hastings (GMH) algorithm proposed in <a href="#calder14">(Calderhead, 2014)</a>. It forms part of the Oxford/UCL/Microsoft Research <a href="http://www.2020science.net/">2020 Science</a> project. GMH implements a class of parallelized Monte-Carlo Markov Chains methods (MCMC) that can be used to estimate model parameters of complex physical and biological processes. Details of the GMH algorithm can be found in the scientific publications listed in the <a href="#refs">References</a>.</p>
+<p>The <strong>Quantifying Uncertainty</strong> project develops code, examples and documentation for the Generalized Metropolis-Hastings (<abbr title="Generalized Metropolis-Hastings">GMH</abbr>) algorithm proposed in <a href="#calder14">(Calderhead, 2014)</a>. It forms part of the Oxford/<abbr title="University College London">UCL</abbr>/Microsoft Research <a href="http://www.2020science.net/" target="_blank">2020 Science</a> project. <abbr title="Generalized Metropolis-Hastings">GMH</abbr> implements a class of parallelized Monte-Carlo Markov Chains methods (<abbr title="Monte-Carlo Markov Chains">MCMC</abbr>) that can be used to estimate model parameters of complex physical and biological processes. Details of the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> algorithm can be found in the scientific publications listed in the <a href="#8-references">References</a>.</p>
 
-<p>The GMH MCMC library is written in <a href="http://julialang.org">Julia</a>, a language designed for fast and flexible mathematical and technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to take advantage of multi-processor machines and clusters. It has an active developer community making it available on Windows, Linux and Mac, and via cloud computing services such as <a href="http://juliabox.org/">JuliaBox</a> or <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS).</p>
+<p>The <abbr title="Generalized Metropolis-Hastings">GMH</abbr> <abbr title="Monte-Carlo Markov Chains">MCMC</abbr> library is written in <a href="http://julialang.org" target="_blank">Julia</a>, a language designed for fast and flexible mathematical and technical computing. It combines aspects of R, MATLAB and Python and can be easily parallelized to take advantage of multi-processor machines and clusters. It has an active developer community making it available on Windows, Linux and Mac, and via cloud computing services such as <a href="http://juliabox.org/" target="_blank">JuliaBox</a> or <a href="http://aws.amazon.com/" target="_blank">Amazon Web Services</a> (<abbr title="Amazon Web Services">AWS</abbr>).</p>
 
-<p>There are 2 different, potentially overlapping, situations in which to use the GMH library:</p>
+<p>There are 2 different, potentially overlapping, situations in which to use the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> library:</p>
 
 <ol>
-<li>To replicate MCMC experiments from <a href="#refs">published scientific papers</a>. In this case, we recommend to run the experiments from a pre-compiled machine image published on AWS. The machine images contain all the required code, libraries and data to run the MCMC experiments for a particular article, which reduces your set-up time. By following the AWS setup steps in Section 2 and 3 below, you will be able to run these experiments via a web browser such as Firefox or Chrome.</li>
-<li>To use the GMH library to define your own MCMC experiments. In addition to using GMH on AWS, alternative ways are to download the GMH repository from GitHub to your local machine or to work via <a href="http://juliabox.org">JuliaBox</a>. </li>
+<li>To replicate <abbr title="Monte-Carlo Markov Chains">MCMC</abbr> experiments from <a href="#8-references">published scientific papers</a>. In this case, we recommend to run the experiments from a pre-compiled machine image published on <abbr title="Amazon Web Services">AWS</abbr>. The machine images contain all the required code, libraries and data to run the <abbr title="Monte-Carlo Markov Chains">MCMC</abbr> experiments for a particular article, which reduces your set-up time. By following the <abbr title="Amazon Web Services">AWS</abbr> setup steps in Section 2 and 3 below, you will be able to run these experiments via a web browser such as Firefox or Chrome.</li>
+<li>To use the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> library to define your own <abbr title="Monte-Carlo Markov Chains">MCMC</abbr> experiments. In addition to using <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on <abbr title="Amazon Web Services">AWS</abbr>, alternative ways are to download the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> repository from GitHub to your local machine or to work via <a href="http://juliabox.org" target="_blank">JuliaBox</a>. </li>
 </ol>
 
-<p>The GMH code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl">GeneralizedMetropolisHastings.jl</a>. Example models, scripts and notebooks to help users develop their own MCMC simulations are included in <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl">GMHExamples.jl</a>. </p>
+<p>The <abbr title="Generalized Metropolis-Hastings">GMH</abbr> code and documentation resides on GitHub in <a href="https://github.com/QuantifyingUncertainty/GeneralizedMetropolisHastings.jl" target="_blank">GeneralizedMetropolisHastings.jl</a>. Example models, scripts and notebooks to help users develop their own <abbr title="Monte-Carlo Markov Chains">MCMC</abbr> simulations are included in <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl" target="_blank">GMHExamples.jl</a>. </p>
 
-<p>The remainder of this documentation outlines how to setup GMH on different platforms. It explains how to sign up for AWS (Section 2), how to use GMH on AWS (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5), how to prepare AWS to run GMH on a cluster of machines (Section 6) and how to publish your own AMIs to accompany the publication of scientific articles that use the GMH repository (Section 7).</p>
+<p>The remainder of this documentation outlines how to setup <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on different platforms. It explains how to sign up for <abbr title="Amazon Web Services">AWS</abbr> (Section 2), how to use <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on <abbr title="Amazon Web Services">AWS</abbr> (Section 3), on JuliaBox (Section 4) or on your local machine (Section 5), how to prepare <abbr title="Amazon Web Services">AWS</abbr> to run <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on a cluster of machines (Section 6) and how to publish your own AMIs to accompany the publication of scientific articles that use the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> repository (Section 7).</p>
 
 <h3>
 <a id="table-1-acronyms" class="anchor" href="#table-1-acronyms" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="acronyms"></a>Table 1. Acronyms</h3>
@@ -77,54 +80,54 @@
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong>AMI</strong></td>
+<td align="center"><strong><abbr title="Amazon Machine Image">AMI</abbr></strong></td>
 <td align="left">Amazon Machine Image</td>
 <td align="left">A pre-configured software image of a virtual server</td>
 </tr>
 <tr>
-<td align="center"><strong>AWS</strong></td>
+<td align="center"><strong><abbr title="Amazon Web Services">AWS</abbr></strong></td>
 <td align="left">Amazon Web Services</td>
 <td align="left">Amazon's cloud computing services</td>
 </tr>
 <tr>
-<td align="center"><strong>EC2</strong></td>
+<td align="center"><strong><abbr title="Elastic Cloud Computing">EC2</abbr></strong></td>
 <td align="left">Elastic Cloud Computing</td>
-<td align="left">AWS service to run virtual servers</td>
+<td align="left"><abbr title="Amazon Web Services">AWS</abbr> service to run virtual servers</td>
 </tr>
 <tr>
-<td align="center"><strong>IAM</strong></td>
+<td align="center"><strong><abbr title="Identity and Access Management">IAM</abbr></strong></td>
 <td align="left">Identity and Access Management</td>
-<td align="left">AWS service to create users</td>
+<td align="left"><abbr title="Amazon Web Services">AWS</abbr> service to create users</td>
 </tr>
 <tr>
-<td align="center"><strong>GMH</strong></td>
+<td align="center"><strong><abbr title="Generalized Metropolis-Hastings">GMH</abbr></strong></td>
 <td align="left">Generalized Metropolis Hastings</td>
 <td align="left">Parallel Metropolis-Hastings from <a href="#calder14">(Calderhead, 2014)</a>
 </td>
 </tr>
 <tr>
-<td align="center"><strong>MCMC</strong></td>
-<td align="left"><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">Monte-Carlo Markov Chain</a></td>
+<td align="center"><strong><abbr title="Monte-Carlo Markov Chains">MCMC</abbr></strong></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo" target="_blank">Monte-Carlo Markov Chain</a></td>
 <td align="left">Class of algorithms to sample from unknown probability distributions</td>
 </tr>
 </tbody>
 </table>
 
 <h2>
-<a id="2-configuring-aws" class="anchor" href="#2-configuring-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Configuring AWS</h2>
+<a id="2-configuring-aws" class="anchor" href="#2-configuring-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2. Configuring <abbr title="Amazon Web Services">AWS</abbr></h2>
 
 <h3>
-<a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an AWS account</h3>
+<a id="step-21-sign-up-for-an-aws-account" class="anchor" href="#step-21-sign-up-for-an-aws-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-signup"></a>Step 2.1: Sign up for an <abbr title="Amazon Web Services">AWS</abbr> account</h3>
 
-<p>This step requires a credit card to set up an account and a phone number to receive a security callback. By using Amazon's "Free Tier", it is possible to avoid being billed, but a credit card is still required. Follow the instructions in the AWS documentation:</p>
+<p>This step requires a credit card to set up an account and a phone number to receive a security callback. By using Amazon's "Free Tier", it is possible to avoid being billed, but a credit card is still required. Follow the instructions in the <abbr title="Amazon Web Services">AWS</abbr> documentation:</p>
 
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html</a></p>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html</a></p>
 
 <p>You should complete the following steps: </p>
 
 <ol>
-<li>Create an AWS account</li>
-<li>Create an IAM user</li>
+<li>Create an <abbr title="Amazon Web Services">AWS</abbr> account</li>
+<li>Create an <abbr title="Identity and Access Management">IAM</abbr> user</li>
 <li>Create a Key Pair</li>
 <li>Create a Security Group</li>
 </ol>
@@ -145,19 +148,19 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">SSH</td>
+<td align="left"><abbr title="Secure Shell">SSH</abbr></td>
 <td align="center">22</td>
 <td align="center">0.0.0.0/0</td>
-<td align="left">SSH command-line access</td>
+<td align="left"><abbr title="Secure Shell">SSH</abbr> command-line access</td>
 </tr>
 <tr>
-<td align="left">Custom TCP Rule</td>
+<td align="left">Custom <abbr title="Transmission Control Protocol">TCP</abbr> Rule</td>
 <td align="center">8998</td>
 <td align="center">0.0.0.0/0</td>
 <td align="left">Access to IJulia server</td>
 </tr>
 <tr>
-<td align="left">Custom TCP Rule</td>
+<td align="left">Custom <abbr title="Transmission Control Protocol">TCP</abbr> Rule</td>
 <td align="center">49152 - 65535</td>
 <td align="center">127.0.0.1/32</td>
 <td align="left">Localhost ports for IJulia server</td>
@@ -165,25 +168,25 @@
 </tbody>
 </table>
 
-<p>The “0.0.0.0/0” in the “Source” field means that incoming connections from any IP address are allowed. You can make the security group more secure by only allowing incoming connections from known IP addresses (e.g., "My IP" in the EC2 security group control panel). This means, however, that every time you change your local IP address you will have to update the Security Group. As long as you are careful in implementing the security steps outlined in Section 3, the above settings should be fine.</p>
+<p>The “0.0.0.0/0” in the “Source” field means that incoming connections from any <abbr title="Internet Protocol">IP</abbr> address are allowed. You can make the security group more secure by only allowing incoming connections from known <abbr title="Internet Protocol">IP</abbr> addresses (e.g., "My IP" in the <abbr title="Elastic Cloud Computing">EC2</abbr> security group control panel). This means, however, that every time you change your local <abbr title="Internet Protocol">IP</abbr> address you will have to update the Security Group. As long as you are careful in implementing the security steps outlined in Section 3, the above settings should be fine.</p>
 
-<p>The entire process of setting up an AWS account is likely to take between 1 and 2 hours, depending on your familiarity with AWS. These steps need to be completed only once.</p>
+<p>The entire process of setting up an <abbr title="Amazon Web Services">AWS</abbr> account is likely to take between 1 and 2 hours, depending on your familiarity with <abbr title="Amazon Web Services">AWS</abbr>. These steps need to be completed only once.</p>
 
 <h3>
-<a id="step-22-check--the-aws-region" class="anchor" href="#step-22-check--the-aws-region" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 2.2: Check  the AWS region</h3>
+<a id="step-22-check--the-aws-region" class="anchor" href="#step-22-check--the-aws-region" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-region"></a>Step 2.2: Check the <abbr title="Amazon Web Services">AWS</abbr> region</h3>
 
-<p>This step typically needs to be performed only once - especially upon first signing up for AWS or if you cannot find the published AMIs listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the GMH AMIs, you need to be logged into the correct region. At this moment, the only region in which the GMH AMIs are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the AWS and EC2 dashboards, between your IAM username and “Support”.</p>
+<p>This step typically needs to be performed only once - especially upon first signing up for <abbr title="Amazon Web Services">AWS</abbr> or if you cannot find the published <abbr title="Amazon Machine Image">AMI</abbr>s listed in Section 3. Amazon regions (data centers) are independent of each other. In order to find the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> <abbr title="Amazon Machine Image">AMI</abbr>s, you need to be logged into the correct region. At this moment, the only region in which the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> <abbr title="Amazon Machine Image">AMI</abbr>s are published is <strong>Ireland</strong>. You can check and change the region in the top right corner of the <abbr title="Amazon Web Services">AWS</abbr> and <abbr title="Elastic Cloud Computing">EC2</abbr> dashboards, between your <abbr title="Identity and Access Management">IAM</abbr> username and “Support”.</p>
 
 <h2>
-<a id="3-using-gmh-on-aws" class="anchor" href="#3-using-gmh-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Using GMH on AWS</h2>
+<a id="3-using-gmh-on-aws" class="anchor" href="#3-using-gmh-on-aws" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3. Using <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on <abbr title="Amazon Web Services">AWS</abbr></h2>
 
 <h3>
-<a id="table-3-published-amis" class="anchor" href="#table-3-published-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-published-amis"></a>Table 3: Published AMIs</h3>
+<a id="table-3-published-amis" class="anchor" href="#table-3-published-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-published-amis"></a>Table 3: Published <abbr title="Amazon Machine Image">AMI</abbr>s</h3>
 
 <table>
 <thead>
 <tr>
-<th align="left">AMI Name</th>
+<th align="left"><abbr title="Amazon Machine Image">AMI</abbr> Name</th>
 <th align="left">Description</th>
 <th align="left">Relevant Publication</th>
 </tr>
@@ -198,24 +201,24 @@
 </table>
 
 <h3>
-<a id="step-31-launch-a-published-ami" class="anchor" href="#step-31-launch-a-published-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="launch-ami"></a>Step 3.1: Launch a published AMI</h3>
+<a id="step-31-launch-a-published-ami" class="anchor" href="#step-31-launch-a-published-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="launch-ami"></a>Step 3.1: Launch a published <abbr title="Amazon Machine Image">AMI</abbr></h3>
 
 <h4>
-<a id="step-311-choose-an-ami" class="anchor" href="#step-311-choose-an-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.1: Choose an AMI</h4>
+<a id="step-311-choose-an-ami" class="anchor" href="#step-311-choose-an-ami" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.1: Choose an <abbr title="Amazon Machine Image">AMI</abbr></h4>
 
-<p>Once logged into the AWS dashboard, go to the EC2 console. Select <strong>Instances</strong> in the left-hand menu, and click the <strong>Launch</strong> button at the top of the panel. Select <strong>Community AMIs</strong> from the left-hand menu and in the search box that appears, copy-paste one of the published AMI names from Table 3. Click the <strong>Select</strong> button to launch the AMI.</p>
+<p>Once logged into the <abbr title="Amazon Web Services">AWS</abbr> dashboard, go to the <abbr title="Elastic Cloud Computing">EC2</abbr> console. Select <strong>Instances</strong> in the left-hand menu, and click the <strong>Launch</strong> button at the top of the panel. Select <strong>Community <abbr title="Amazon Machine Image">AMI</abbr>s</strong> from the left-hand menu and in the search box that appears, copy-paste one of the published <abbr title="Amazon Machine Image">AMI</abbr> names from Table 3. Click the <strong>Select</strong> button to launch the <abbr title="Amazon Machine Image">AMI</abbr>.</p>
 
-<p><strong>Troubleshooting</strong>: if the AMI does not appear in the list, then <a href="#aws-region">check the AWS region</a>.</p>
+<p><strong>Troubleshooting</strong>: if the <abbr title="Amazon Machine Image">AMI</abbr> does not appear in the list, then <a href="#aws-region">check the AWS region</a>.</p>
 
 <h4>
 <a id="step-312-choose-an-instance-type" class="anchor" href="#step-312-choose-an-instance-type" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.2: Choose an Instance Type</h4>
 
-<p>Here you select the physical hardware on which to run. To avoid being billed, select an instance labelled with "Free tier eligible" (currently the t2.micro). Click <strong>Next: Configure Instance Details.</strong></p>
+<p>Here you select the physical hardware on which to run. Whereas the t2.micro is free to use under Amazon's free tier scheme, it is recommended that you select one of the larger machines (e.g., the t2.medium or higher) as the system needs sufficient memory to operate.  Click <strong>Next: Configure Instance Details.</strong></p>
 
 <h4>
 <a id="step-313-configure-instance-details" class="anchor" href="#step-313-configure-instance-details" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.3: Configure Instance Details</h4>
 
-<p>From the "Subnet" drop-down list, select a subnet that corresponds to a particular availability zone, which is important if you will also attach an existing EBS-backed volume to contain your data (this is optional - see Step 3.3 below). Make a note of which availability zone you select (currently <strong>eu-west-1a</strong>, <strong>1b</strong> or <strong>1c</strong>). Choose <strong>Next: Add Storage</strong> at the bottom of the page.</p>
+<p>From the "Subnet" drop-down list, select a subnet that corresponds to a particular availability zone, which is important if you will also attach an existing <abbr title="Elastic Block Store">EBS</abbr>-backed volume to contain your data (this is optional - see Step 3.3 below). Make a note of which availability zone you select (currently <strong>eu-west-1a</strong>, <strong>1b</strong> or <strong>1c</strong>). Choose <strong>Next: Add Storage</strong> at the bottom of the page.</p>
 
 <h4>
 <a id="step-314-add-storage" class="anchor" href="#step-314-add-storage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.4: Add Storage</h4>
@@ -230,66 +233,66 @@
 <h4>
 <a id="step-316-configure-security-group" class="anchor" href="#step-316-configure-security-group" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.6: Configure Security Group</h4>
 
-<p>Select the radio button <strong>Select an existing security group</strong> and select both the <strong>default VPC security group</strong> and the security group for Jupyter/IJulia access that you made in <a href="#sg-rules">Step 2.1</a>. Click <strong>Next: Review and Launch</strong>.</p>
+<p>Select the radio button <strong>Select an existing security group</strong> and select both the <strong>default <abbr title="Virtual Private Cloud">VPC</abbr> security group</strong> and the security group for Jupyter/IJulia access that you made in <a href="#sg-rules">Step 2.1</a>. Click <strong>Next: Review and Launch</strong>.</p>
 
 <h4>
 <a id="step-317-review-and-launch" class="anchor" href="#step-317-review-and-launch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 3.1.7: Review and Launch</h4>
 
-<p>It is safe to ignore the warning that the Security Group is open to the world (if the security steps outlined in Step 3.4 are adhered to). Click <strong>Launch</strong> at the bottom of the page. A pop-up window comes up. If you previously made a Key Pair, select <strong>Choose an existing key pair</strong>. Otherwise select <strong>Create a new key pair</strong> and make sure to download the private SSH key to a safe location on your local machine.</p>
+<p>It is safe to ignore the warning that the Security Group is open to the world (if the security steps outlined in Step 3.4 are adhered to). Click <strong>Launch</strong> at the bottom of the page. A pop-up window comes up. If you previously made a Key Pair, select <strong>Choose an existing key pair</strong>. Otherwise select <strong>Create a new key pair</strong> and make sure to download the private <abbr title="Secure Shell">SSH</abbr> key to a safe location on your local machine.</p>
 
-<p>Click <strong>Launch Instances</strong>. On the next window, <strong>Launch Status</strong>, click <strong>View Instances</strong>, which takes you to the Instances page. Once the <strong>Instance State</strong> becomes green and says <strong>running</strong>, you can connect via SSH. </p>
+<p>Click <strong>Launch Instances</strong>. On the next window, <strong>Launch Status</strong>, click <strong>View Instances</strong>, which takes you to the Instances page. Once the <strong>Instance State</strong> becomes green and says <strong>running</strong>, you can connect via <abbr title="Secure Shell">SSH</abbr>. </p>
 
 <h3>
 <a id="step-32-connect-to-a-running-instance" class="anchor" href="#step-32-connect-to-a-running-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="ami-connect"></a>Step 3.2: Connect to a running instance</h3>
 
-<p>The username for this machine is <strong>ubuntu</strong>. There is no password, but verification occurs with the SSH Key Pair you created previously.</p>
+<p>The username for this machine is <strong>ubuntu</strong>. There is no password, but verification occurs with the <abbr title="Secure Shell">SSH</abbr> Key Pair you created previously.</p>
 
-<p>Instructions on how to connect to the instance via SSH can be found here:</p>
+<p>Instructions on how to connect to the instance via <abbr title="Secure Shell">SSH</abbr> can be found here:</p>
 
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html</a></p>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-connect-to-instance-linux.html</a></p>
 
 <p>If you are using Windows and PuTTy, follow these instructions to transform your local key:
-<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair</a></p>
+<a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html#create-a-key-pair</a></p>
 
-<p><strong>Troubleshooting</strong>: if you cannot connect, then it may be because of the Security Group settings you launched the machine with. Check that they correspond to the ones in <a href="#sg-rules">Table 2</a>. If you opted to not allow access from all IP addresses (i.e., did not select 0.0.0.0/0 in <a href="sg-rules">Table 2</a>), then make sure that the IP address in the Security Group is the same as the IP address of your local machine (visit <a href="http://myipaddress.com">http://myipaddress.com</a> to find out).</p>
+<p><strong>Troubleshooting</strong>: if you cannot connect, then it may be because of the Security Group settings you launched the machine with. Check that they correspond to the ones in <a href="#sg-rules">Table 2</a>. If you opted to not allow access from all <abbr title="Internet Protocol">IP</abbr> addresses (i.e., did not select 0.0.0.0/0 in <a href="#sg-rules">Table 2</a>), then make sure that the <abbr title="Internet Protocol">IP</abbr> address in the Security Group is the same as the <abbr title="Internet Protocol">IP</abbr> address of your local machine (visit <a href="http://myipaddress.com" target="_blank">http://myipaddress.com</a> to find out).</p>
 
 <h3>
-<a id="step-33-add-an-ebs-volume" class="anchor" href="#step-33-add-an-ebs-volume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="add-ebs"></a>Step 3.3: Add an EBS Volume</h3>
+<a id="step-33-add-an-ebs-volume" class="anchor" href="#step-33-add-an-ebs-volume" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="add-ebs"></a>Step 3.3: Add an <abbr title="Elastic Block Store">EBS</abbr> Volume</h3>
 
 <p><strong>Optional</strong>: you can add additional storage to hold your data and experiments by following these instructions: </p>
 
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-add-volume-to-instance.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-add-volume-to-instance.html</a> </p>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-add-volume-to-instance.html" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-add-volume-to-instance.html</a> </p>
 
-<p>When connected to the instance via SSH, mount the new volume in the home folder rather than in the location suggested in the AWS user guide, for example:</p>
+<p>When connected to the instance via <abbr title="Secure Shell">SSH</abbr>, mount the new volume in the home folder rather than in the location suggested in the <abbr title="Amazon Web Services">AWS</abbr> user guide, for example:</p>
 
 <pre><code>sudo mount /dev/xvdf ~/data
 </code></pre>
 
-<p>If you create an EBS volume, limit the size to a few GB as the Free Tier only comes with 30GB of free storage for all volumes combined.</p>
+<p>If you create an <abbr title="Elastic Block Store">EBS</abbr> volume, limit the size to a few <abbr title="gigabyte">GB</abbr> as the Free Tier only comes with 30<abbr title="gigabyte">GB</abbr> of free storage for all volumes combined.</p>
 
 <h3>
 <a id="step-34-configure-the-notebook-server" class="anchor" href="#step-34-configure-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-server-config"></a>Step 3.4: Configure the Notebook server</h3>
 
 <p>This step configures the Jupyter Notebook Server for access via a browser such as Chrome or Firefox. </p>
 
-<p><strong>Important</strong>: During the running of the configuration script, you will be asked for a password to login via a browser into the Jupyter Notebook Server. Ensure to select a secure password, consisting preferably of 3 unconnected words, e.g., "apple-spring-saxophone". If the password you select is not secure, then your AWS server is vulnerable to attack as the Notebook server allows any system command to be executed via a web browser.</p>
+<p><strong>Important</strong>: During the running of the configuration script, you will be asked for a password to login via a browser into the Jupyter Notebook Server. Ensure to select a secure password, consisting preferably of 3 unconnected words, e.g., "apple-spring-saxophone". If the password you select is not secure, then your <abbr title="Amazon Web Services">AWS</abbr> server is vulnerable to attack as the Notebook server allows any system command to be executed via a web browser.</p>
 
 <p>Execute the configuration script:</p>
 
 <pre><code>GMHConfigure/gmh-server/config.sh
 </code></pre>
 
-<p>As part of the configuration, the script will ask you to enter a password, and create a self-signed SSL certificate to encrypt the communication to the server. It will ask for some information. You may press enter to accept all default values.</p>
+<p>As part of the configuration, the script will ask you to enter a password, and create a self-signed <abbr title="Secure Sockets Layer">SSL</abbr> certificate to encrypt the communication to the server. It will ask for some information. You may press enter to accept all default values.</p>
 
 <h3>
 <a id="step-35-launch-a-notebook-server" class="anchor" href="#step-35-launch-a-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="launch-jupyter"></a>Step 3.5: Launch a Notebook server</h3>
 
-<p>On the SSH command line, you can start the Notebook server:</p>
+<p>On the <abbr title="Secure Shell">SSH</abbr> command line, you can start the Notebook server:</p>
 
 <pre><code>jupyter notebook &amp;
 </code></pre>
 
-<p>The ampersand means that the notebook server is placed in the background. Once you see that the server is running on Port 8998, you can logout of the SSH session, and the server will continue to run in the background until the instance is stopped.</p>
+<p>The ampersand means that the notebook server is placed in the background. Once you see that the server is running on Port 8998, you can logout of the <abbr title="Secure Shell">SSH</abbr> session, and the server will continue to run in the background until the instance is stopped.</p>
 
 <p>The Jupyter server prints status messages to the console. You can redirect this output to a log file:</p>
 
@@ -300,12 +303,12 @@
 <a id="step-36-login-to-the-notebook-server" class="anchor" href="#step-36-login-to-the-notebook-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dlogin-jupyter%E2%80%9D/">Step 3.6 Login to the Notebook server</a>
 </h3>
 
-<p>To connect to the Notebook server via your browser, get the public IP address of your running instance from the EC2 console (the “Instances” page) and type it in the address bar of your web browser. Make sure to use <strong>https</strong> to connect (rather than plain <strong>http</strong>).</p>
+<p>To connect to the Notebook server via your browser, get the public <abbr title="Internet Protocol">IP</abbr> address of your running instance from the <abbr title="Elastic Cloud Computing">EC2</abbr> console (the “Instances” page) and type it in the address bar of your web browser. Make sure to use <strong>https</strong> to connect (rather than plain <strong>http</strong>).</p>
 
 <pre><code>https://xxx.xxx.xxx.xxx:8998
 </code></pre>
 
-<p>The browser will complain that the connection is not private because the identity of the self-signed SSL certificate could not be checked. You can safely ignore these warnings. </p>
+<p>The browser will complain that the connection is not private because the identity of the self-signed <abbr title="Secure Sockets Layer">SSL</abbr> certificate could not be checked. You can safely ignore these warnings. </p>
 
 <p>You are now at the notebook server login page. Type the password you <a href="#gmh-server-config">created above</a>. </p>
 
@@ -315,33 +318,33 @@
 
 <p>Under the <strong>Files</strong> tab in the notebook server, you will see repositories with example experiments in IJUlia Notebooks. Notebooks contain both code and documentation, so please refer to these notebooks for further information.</p>
 
-<p>You can start individual notebooks by navigating to one of the folders containing a notebook, and double-clicking it. You can also start a command-line terminal by selecting “New/Terminal” from the right-hand side of the screen. For further information on the notebook server interface, see the <a href="http://jupyter.readthedocs.org/en/latest/">Jupyter</a> documentation. </p>
+<p>You can start individual notebooks by navigating to one of the folders containing a notebook, and double-clicking it. You can also start a command-line terminal by selecting “New/Terminal” from the right-hand side of the screen. For further information on the notebook server interface, see the <a href="http://jupyter.readthedocs.org/en/latest/" target="_blank">Jupyter</a> documentation. </p>
 
 <h3>
-<a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and AWS machine</a>
+<a id="step-38-stoppingterminating-the-notebook-server-and-aws-machine" class="anchor" href="#step-38-stoppingterminating-the-notebook-server-and-aws-machine" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="%E2%80%9Dstop-jupyter%E2%80%9D/">Step 3.8: Stopping/Terminating the Notebook server and <abbr title="Amazon Web Services">AWS</abbr> machine</a>
 </h3>
 
-<p>When finished, there are multiple levels of halting/terminating the Notebook server and AWS machine:</p>
+<p>When finished, there are multiple levels of halting/terminating the Notebook server and <abbr title="Amazon Web Services">AWS</abbr> machine:</p>
 
 <ol>
 <li>Logout of the notebook server by clicking the “Logout” button at the top right of the server screen. The server will continue to be accessible on Port 8998 for future login.</li>
-<li>The Notebook server can be halted via the SSH terminal (e.g., using the Unix <strong>kill</strong> command).</li>
-<li>In the AWS/EC2 dashboard, under the <strong>Instances</strong> tab, you can temporarily stop the running EC2 instance, by selecting the instance and clicking <strong>Actions/Instance State/Stop</strong> at the top of the screen. This will power down the computer, but it will remain available to restart later. Note that, unless you <strong>Stop</strong> an EC2 instance, the running time is chargeable, even if your computer is idle (unless you operate within Amazon’s “Free Tier”).</li>
+<li>The Notebook server can be halted via the <abbr title="Secure Shell">SSH</abbr> terminal (e.g., using the Unix <strong>kill</strong> command).</li>
+<li>In the <abbr title="Amazon Web Services">AWS</abbr>/<abbr title="Elastic Cloud Computing">EC2</abbr> dashboard, under the <strong>Instances</strong> tab, you can temporarily stop the running <abbr title="Elastic Cloud Computing">EC2</abbr> instance, by selecting the instance and clicking <strong>Actions/Instance State/Stop</strong> at the top of the screen. This will power down the computer, but it will remain available to restart later. Note that, unless you <strong>Stop</strong> an <abbr title="Elastic Cloud Computing">EC2</abbr> instance, the running time is chargeable, even if your computer is idle (unless you operate within Amazon’s “Free Tier”).</li>
 <li>You can also <strong>Terminate</strong> an instance. This means that the resources associated with the instance will be deleted. In other words, an instance that has been terminated cannot be restarted, and you would need to setup the machine anew.</li>
 </ol>
 
 <h2>
-<a id="4-using-gmh-on-juliabox" class="anchor" href="#4-using-gmh-on-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Using GMH on JuliaBox</h2>
+<a id="4-using-gmh-on-juliabox" class="anchor" href="#4-using-gmh-on-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4. Using <abbr title="Generalized Metropolis-Hastings">GMH</abbr> on JuliaBox</h2>
 
 <h3>
 <a id="step-41-sign-in-to-juliabox" class="anchor" href="#step-41-sign-in-to-juliabox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.1: Sign in to JuliaBox</h3>
 
-<p>Go to <a href="https://juliabox.org">https://juliabox.org</a> and sign in with your Google credentials.</p>
+<p>Go to <a href="https://juliabox.org" target="_blank">https://juliabox.org</a> and sign in with your Google credentials.</p>
 
 <h3>
 <a id="step-42-start-a-julia-session-in-the-terminal" class="anchor" href="#step-42-start-a-julia-session-in-the-terminal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.2: Start a Julia session in the Terminal</h3>
 
-<p>At the top of the JuliaBox window, select <strong>Terminal</strong>. The currently preferred version of Julia to run the GMH module is v0.4. </p>
+<p>At the top of the JuliaBox window, select <strong>Terminal</strong>. The currently preferred version of Julia to run the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> module is v0.4. </p>
 
 <p>Start a Julia session in the terminal window by executing:</p>
 
@@ -349,10 +352,10 @@
 </code></pre>
 
 <h3>
-<a id="step-43-install-update-and-test-generalizedmetropolishastingsjl-" class="anchor" href="#step-43-install-update-and-test-generalizedmetropolishastingsjl-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.3: Install, update and test GeneralizedMetropolisHastings.jl <a name="%E2%80%9Dinstall-on-juliabox%E2%80%9D/"></a>
+<a id="step-43-install-update-and-test-generalizedmetropolishastingsjl-" class="anchor" href="#step-43-install-update-and-test-generalizedmetropolishastingsjl-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.3: Install, update and test GeneralizedMetropolisHastings.jl <a name="install-on-juliabox"></a>
 </h3>
 
-<p>If this is the first time you are using the GMH module in your JuliaBox, you will need to install the required packages by executing at the Julia command prompt:</p>
+<p>If this is the first time you are using the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> module in your JuliaBox, you will need to install the required packages by executing at the Julia command prompt:</p>
 
 <pre><code>julia&gt; Pkg.add("GeneralizedMetropolisHastings")
 </code></pre>
@@ -362,7 +365,7 @@
 <pre><code>julia&gt; Pkg.update()
 </code></pre>
 
-<p>You can now test if GMH installed correctly and is compatible with this particular JuliaBox installation by running the GMH tests:</p>
+<p>You can now test if <abbr title="Generalized Metropolis-Hastings">GMH</abbr> installed correctly and is compatible with this particular JuliaBox installation by running the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> tests:</p>
 
 <pre><code>julia&gt; Pkg.test("GeneralizedMetropolisHastings")
 </code></pre>
@@ -373,118 +376,118 @@
 <p>Sync repositories with examples from GitHub to your JuliaBox home folder. At the top of the JuliaBox window, select <strong>Sync</strong>.  Add the following to the “Git Repositories”.</p>
 
 <ul>
-<li><a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl.git">https://github.com/QuantifyingUncertainty/GMHExamples.jl.git</a></li>
-<li><a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git">https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git</a></li>
+<li><a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl.git" target="_blank">https://github.com/QuantifyingUncertainty/GMHExamples.jl.git</a></li>
+<li><a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git" target="_blank">https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl.git</a></li>
 </ul>
 
 <p>Paste the above https URLs into the “Git Clone URL”. Accept “master” as branch, "GMHExamples.jl" (or "GMHPhotoReceptor.jl") as location, and press "+" to add the repository. This will now download the package to the specified location. </p>
 
-<p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl">GMHExamples.jl</a> and <a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl">GMHPhotoReceptorjl</a> repositories for details on how to use them.</p>
+<p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl" target="_blank">GMHExamples.jl</a> and <a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl" target="_blank">GMHPhotoReceptor.jl</a> repositories for details on how to use them.</p>
 
 <h3>
 <a id="step-45-set-the-julia-search-path" class="anchor" href="#step-45-set-the-julia-search-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 4.5 Set the Julia search path</h3>
 
-<p>Add the path to the <strong>GMHPhotoReceptor.jl</strong> module file to <strong>~/.juliarc.jl</strong> by executing the following command in the terminal window.</p>
+<p>Add the path to the <strong><code>GMHPhotoReceptor.jl</code></strong> module file to <strong><code>~/.juliarc.jl</code></strong> by executing the following command in the terminal window.</p>
 
 <pre><code>juser@juliabox:~$ echo 'push!(LOAD_PATH,"/home/juser/GMHPhotoReceptor.jl")' &gt; .juliarc.jl
 </code></pre>
 
-<p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing <strong>cat ~/.juliarc.jl</strong> in the terminal window.</p>
+<p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing <strong><code>cat ~/.juliarc.jl</code></strong> in the terminal window.</p>
 
 <h2>
-<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using GMH locally</h2>
+<a id="5-using-gmh-locally" class="anchor" href="#5-using-gmh-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5. Using <abbr title="Generalized Metropolis-Hastings">GMH</abbr> locally</h2>
 
 <h3>
 <a id="step-51-install-julia--ide" class="anchor" href="#step-51-install-julia--ide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.1: Install Julia + IDE</h3>
 
-<p>Install Julia from <a href="http://julialang.org/downloads/">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/">Juno</a> is recommended.</p>
+<p>Install Julia from <a href="http://julialang.org/downloads/" target="_blank">http://julialang.org/downloads/</a>. You can also install a development environment. On Windows, <a href="http://junolab.org/" target="_blank">Juno</a> is recommended.</p>
 
 <h3>
-<a id="step-52-install-the-gmh-package" class="anchor" href="#step-52-install-the-gmh-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.2: Install the GMH package</h3>
+<a id="step-52-install-the-gmh-package" class="anchor" href="#step-52-install-the-gmh-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.2: Install the <abbr title="Generalized Metropolis-Hastings">GMH</abbr> package</h3>
 
 <p>Start Julia and follow the instructions from <a href="#install-on-juliabox">Step 4.3</a> to install and test the Generalized Metropolis-Hastings packages.</p>
 
 <h3>
 <a id="step-53-sync-example-repositories" class="anchor" href="#step-53-sync-example-repositories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.3 Sync example repositories</h3>
 
-<p>Install the GMHExamples.jl and GMHPhotoReceptor.jl repositories from GitHub in a local folder. Instructions on how to install from GitHub can be found on <a href="https://github.com/">GitHub</a>. </p>
+<p>Install the GMHExamples.jl and GMHPhotoReceptor.jl repositories from GitHub in a local folder. Instructions on how to install from GitHub can be found on <a href="https://github.com/" target="_blank">GitHub</a>. </p>
 
-<p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl">GMHExamples.jl</a> and <a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl">GMHPhotoReceptor.jl</a> repositories on how to use them.</p>
+<p>Please refer to the documentation of the <a href="https://github.com/QuantifyingUncertainty/GMHExamples.jl" target="_blank">GMHExamples.jl</a> and <a href="https://github.com/QuantifyingUncertainty/GMHPhotoReceptor.jl" target="_blank">GMHPhotoReceptor.jl</a> repositories on how to use them.</p>
 
 <h3>
 <a id="step-54-set-julia-search-path" class="anchor" href="#step-54-set-julia-search-path" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 5.4 Set Julia search path</h3>
 
-<p>Add the following line to the ~/juliarc.jl file, inserting the correct path to the GMHPhotoReceptor.jl folder. </p>
+<p>Add the following line to the <strong><code>~/.juliarc.jl</code></strong> file, inserting the correct path to the <strong><code>GMHPhotoReceptor.jl</code></strong> folder. </p>
 
 <pre><code>push!(LOAD_PATH,"/path/to/GMHPhotoReceptor.jl")
 </code></pre>
 
-<p><strong>juliarc.jl</strong> should reside in your home folder, which is system dependent. On Windows, this is usually <strong>C:\users\yourname</strong>.</p>
+<p><strong><code>.juliarc.jl</code></strong> should reside in your home folder, which is system dependent. On Windows, this is usually <strong><code>C:\users\&lt;your name&gt;</code></strong>.</p>
 
 <h2>
-<a id="6-preparing-an-aws-cluster" class="anchor" href="#6-preparing-an-aws-cluster" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Preparing an AWS cluster</h2>
+<a id="6-preparing-an-aws-cluster" class="anchor" href="#6-preparing-an-aws-cluster" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6. Preparing an <abbr title="Amazon Web Services">AWS</abbr> cluster</h2>
 
 <h3>
-<a id="61-get-aws-access-keys" class="anchor" href="#61-get-aws-access-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-access-keys"></a>6.1 Get AWS Access Keys</h3>
+<a id="61-get-aws-access-keys" class="anchor" href="#61-get-aws-access-keys" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="aws-access-keys"></a>6.1 Get <abbr title="Amazon Web Services">AWS</abbr> Access Keys</h3>
 
-<p>The master server in the cluster needs to be configured with AWS Access Keys. Please follow the steps outlined in "To create, modify, or delete a user's access keys" in:</p>
+<p>The master server in the cluster needs to be configured with <abbr title="Amazon Web Services">AWS</abbr> Access Keys. Please follow the steps outlined in "To create, modify, or delete a user's access keys" in:</p>
 
-<p><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey">http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey</a></p>
+<p><a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey" target="_blank">http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html#Using_CreateAccessKey</a></p>
 
-<p>Make sure to download the AWS Access Key ID and Secret Access Key to your local machine and store them in a secure location. Typically, this step needs to be executed only once.</p>
+<p>Make sure to download the <abbr title="Amazon Web Services">AWS</abbr> Access Key ID and Secret Access Key to your local machine and store them in a secure location. Typically, this step needs to be executed only once.</p>
 
-<p><strong>Note</strong>: if you see in your security credentials that you have an AWS Access Key ID, but did not create this yourself, did not download the Secret Access Key, or lost the Secret Access Key, you will have to create a new one as outlined in the documentation above. In that case, you can also delete the existing AWS Access Key as you will not be able to use it. </p>
+<p><strong>Note</strong>: if you see in your security credentials that you have an <abbr title="Amazon Web Services">AWS</abbr> Access Key ID, but did not create this yourself, did not download the Secret Access Key, or lost the Secret Access Key, you will have to create a new one as outlined in the documentation above. In that case, you can also delete the existing <abbr title="Amazon Web Services">AWS</abbr> Access Key as you will not be able to use it. </p>
 
 <h3>
 <a id="62-start-the-master-server" class="anchor" href="#62-start-the-master-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.2 Start the Master server</h3>
 
-<p>Follow the steps in Section 3 to set up your own Jupyter/IJulia Notebook server. Connect to this machine using SSH, as explained in <a href="#ami-connect">Step 3.2</a>.</p>
+<p>Follow the steps in Section 3 to set up your own Jupyter/IJulia Notebook server. Connect to this machine using <abbr title="Secure Shell">SSH</abbr>, as explained in <a href="#ami-connect">Step 3.2</a>.</p>
 
-<p>This machine will be the only one in your cluster which can be accessed from outside AWS, which is determined by the security group specified in <a href="#sg-rules">Step 2.1</a>.</p>
+<p>This machine will be the only one in your cluster which can be accessed from outside <abbr title="Amazon Web Services">AWS</abbr>, which is determined by the security group specified in <a href="#sg-rules">Step 2.1</a>.</p>
 
 <h3>
 <a id="63-run-the-cluster-configuration-script" class="anchor" href="#63-run-the-cluster-configuration-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.3 Run the cluster configuration script</h3>
 
-<p>To configure SSH access to the additional worker machines in the cluster, run the following script:</p>
+<p>To configure <abbr title="Secure Shell">SSH</abbr> access to the additional worker machines in the cluster, run the following script:</p>
 
 <pre><code>GMHConfigure/gmh-cluster/config.sh
 </code></pre>
 
 <p>The script asks for your <a href="#aws-access-keys">AWS Access Keys</a> and region. The default region is currently <strong>eu-west-1</strong>. </p>
 
-<p>The script creates a Key Pair for password-less login over SSH, saves the private key to a secure location on the master server, and adds the public key to your AWS console. The name of the key is <strong>julia-cluster-access-xxx.xxx.xxx.xxx</strong> with xxx standing for the private IP address of the cluster.</p>
+<p>The script creates a Key Pair for password-less login over <abbr title="Secure Shell">SSH</abbr>, saves the private key to a secure location on the master server, and adds the public key to your <abbr title="Amazon Web Services">AWS</abbr> console. The name of the key is <strong>julia-cluster-access-xxx.xxx.xxx.xxx</strong> with xxx standing for the private <abbr title="Internet Protocol">IP</abbr> address of the cluster.</p>
 
 <h3>
 <a id="64-start-additional-worker-machines" class="anchor" href="#64-start-additional-worker-machines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6.4 Start additional Worker machines</h3>
 
-<p>Return to the <strong>Instances</strong> tab in the AWS console, click <strong>Launch Instance</strong> and launch 1 or more Worker instances in a similar manner to the Launch Instance procedure outlined in  <a href="#launch-ami">Step 3.1</a>. Launch the same AMI as your master server using the <strong>My AMIs</strong> section, specifying the desired number of instances in option <strong>3. Configure Instance</strong>, and ensure to launch it into the same subnet (Step 3.1.3). For the security group (Setp 3.1.6), this time only select the default VPC security group.</p>
+<p>Return to the <strong>Instances</strong> tab in the <abbr title="Amazon Web Services">AWS</abbr> console, click <strong>Launch Instance</strong> and launch 1 or more Worker instances in a similar manner to the Launch Instance procedure outlined in  <a href="#launch-ami">Step 3.1</a>. Launch the same <abbr title="Amazon Machine Image">AMI</abbr> as your master server using the <strong>My <abbr title="Amazon Machine Image">AMI</abbr>s</strong> section, specifying the desired number of instances in option <strong>3. Configure Instance</strong>, and ensure to launch it into the same subnet (Step 3.1.3). For the security group (Setp 3.1.6), this time only select the default VPC security group.</p>
 
 <p>When selecting the key pair (Step 3.1.7), select the <strong>julia-cluster-access-xxx.xxx.xxx.xxx</strong> Key Pair you created in the previous step.</p>
 
-<p>Go to the instances page, select the launching instance, and in the <strong>Description</strong> tab in the bottom half of the page, note down the <strong>Private IPs</strong>. </p>
+<p>Go to the instances page, select the launching instance, and in the <strong>Description</strong> tab in the bottom half of the page, note down the <strong>Private <abbr title="Internet Protocol">IP</abbr>s</strong>. </p>
 
-<p>You should test that passwordless SSH access to this worker is set up correctly by executing in your existing SSH terminal session. </p>
+<p>You should test that passwordless <abbr title="Secure Shell">SSH</abbr> access to this worker is set up correctly by executing in your existing <abbr title="Secure Shell">SSH</abbr> terminal session. </p>
 
 <pre><code>ssh ubuntu@xxx.xxx.xxx.xxx
 </code></pre>
 
-<p>where <strong>xxx.xxx.xxx.xxx</strong> is the private IP address you obtained from the AWS console. </p>
+<p>where <strong>xxx.xxx.xxx.xxx</strong> is the private <abbr title="Internet Protocol">IP</abbr> address you obtained from the <abbr title="Amazon Web Services">AWS</abbr> console. </p>
 
-<p>If you have followed all steps, this command should log into the slave machine. This step also results in the SSH key being added to the list of known hosts and is required before automatic SSH login can work inside Julia. </p>
+<p>If you have followed all steps, this command should log into the slave machine. This step also results in the <abbr title="Secure Shell">SSH</abbr> key being added to the list of known hosts and is required before automatic <abbr title="Secure Shell">SSH</abbr> login can work inside Julia. </p>
 
-<p>Type <strong>exit</strong> to log out from your internal SSH session and return to the original SSH session.</p>
+<p>Type <strong>exit</strong> to log out from your internal <abbr title="Secure Shell">SSH</abbr> session and return to the original <abbr title="Secure Shell">SSH</abbr> session.</p>
 
 <h3>
 <a id="step-65-check-addprocs-in-julia" class="anchor" href="#step-65-check-addprocs-in-julia" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 6.5 Check addprocs() in Julia</h3>
 
-<p>To test that you can now launch Julia worker processes on the additional worker machines in the cluster, open a Julia REPL (by typing <strong>julia</strong>) and execute the following:</p>
+<p>To test that you can now launch Julia worker processes on the additional worker machines in the cluster, open a Julia REPL (by typing <strong><code>julia</code></strong>) and execute the following:</p>
 
 <pre><code>julia&gt; machvec = [("ubuntu@xxx.xxx.xxx.xxx",:auto),("ubuntu@xxx.xxx.xxx.xxx",:auto)]
 </code></pre>
 
-<p>Where xxx.xxx.xxx.xxx are the private IP addresses you obtained in Step 6.4. </p>
+<p>Where xxx.xxx.xxx.xxx are the private <abbr title="Internet Protocol">IP</abbr> addresses you obtained in Step 6.4. </p>
 
-<p>As shown above, you can add multiple (IP address,:auto) pairs to the vector, separated by commas. The <strong>:auto</strong> symbol ensures that each worker machine launches as many processes as it has cores.</p>
+<p>As shown above, you can add multiple (<abbr title="Internet Protocol">IP</abbr> address,:auto) pairs to the vector, separated by commas. The <strong><code>:auto</code></strong> symbol ensures that each worker machine launches as many processes as it has cores.</p>
 
 <p>Launch additional workers on the remote machine by executing the following command:</p>
 
@@ -511,25 +514,25 @@ julia&gt; include("test/runtests.jl")
 <pre><code>julia&gt; rmprocs(workers())
 </code></pre>
 
-<p>Close the julia session by typing <strong>exit()</strong>.</p>
+<p>Close the julia session by typing <strong><code>exit()</code></strong>.</p>
 
 <p>You can now launch the Jupyter/IJulia server as explained in <a href="#gmh-server-config">Step 3.4</a> and  <a href="#launch-jupyter">Step 3.5</a>. You are now ready to run Julia scripts and notebooks on the cluster.</p>
 
 <h2>
-<a id="7-configuring-gmh-amis" class="anchor" href="#7-configuring-gmh-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Configuring GMH AMIs</h2>
+<a id="7-configuring-gmh-amis" class="anchor" href="#7-configuring-gmh-amis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7. Configuring <abbr title="Generalized Metropolis-Hastings">GMH</abbr> <abbr title="Amazon Machine Image">AMI</abbr>s</h2>
 
 <h3>
-<a id="71-configure-an-ami-with-julia-and-gmh" class="anchor" href="#71-configure-an-ami-with-julia-and-gmh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-config"></a>7.1 Configure an AMI with Julia and GMH</h3>
+<a id="71-configure-an-ami-with-julia-and-gmh" class="anchor" href="#71-configure-an-ami-with-julia-and-gmh" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-config"></a>7.1 Configure an <abbr title="Amazon Machine Image">AMI</abbr> with Julia and <abbr title="Generalized Metropolis-Hastings">GMH</abbr></h3>
 
 <h4>
-<a id="step-711-launch-and-connect-to-a-fresh-ec2-instance" class="anchor" href="#step-711-launch-and-connect-to-a-fresh-ec2-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.1 Launch and connect to a fresh EC2 instance</h4>
+<a id="step-711-launch-and-connect-to-a-fresh-ec2-instance" class="anchor" href="#step-711-launch-and-connect-to-a-fresh-ec2-instance" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.1 Launch and connect to a fresh <abbr title="Elastic Cloud Computing">EC2</abbr> instance</h4>
 
 <p>Starting from a fresh Ubuntu Server 14.04LTS or similar, follow the instructions to <a href="#launch-ami">launch and connect to an AMI over SSH</a>.</p>
 
 <h4>
 <a id="step-712-install-git" class="anchor" href="#step-712-install-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.2 Install Git</h4>
 
-<p>In the SSH terminal, execute the following commands to install the Git repository software:</p>
+<p>In the <abbr title="Secure Shell">SSH</abbr> terminal, execute the following commands to install the Git repository software:</p>
 
 <pre><code>sudo apt-get update 
 sudo apt-get -y install git
@@ -538,13 +541,13 @@ sudo apt-get -y install git
 <h4>
 <a id="step-713-checkout-the-configuration-scripts" class="anchor" href="#step-713-checkout-the-configuration-scripts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.3 Checkout the configuration scripts</h4>
 
-<p>Install the configuration scripts from the <a href="https://github.com/QuantifyingUncertainty/GMHConfigure">GMHConfigure</a> repository:</p>
+<p>Install the configuration scripts from the <a href="https://github.com/QuantifyingUncertainty/GMHConfigure" target="_blank">GMHConfigure</a> repository:</p>
 
 <pre><code>git clone https://github.com/QuantifyingUncertainty/GMHConfigure
 </code></pre>
 
 <h4>
-<a id="step-714-run-the-ami-configuration-script" class="anchor" href="#step-714-run-the-ami-configuration-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.4 Run the AMI configuration script</h4>
+<a id="step-714-run-the-ami-configuration-script" class="anchor" href="#step-714-run-the-ami-configuration-script" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Step 7.1.4 Run the <abbr title="Amazon Machine Image">AMI</abbr> configuration script</h4>
 
 <pre><code>GMHConfigure/gmh-ami/config.sh
 </code></pre>
@@ -556,22 +559,22 @@ sudo apt-get -y install git
 <p>The last line printed by the script will indicate whether the installation process was successful.</p>
 
 <h3>
-<a id="72-prepare-an-ami-for-publishing" class="anchor" href="#72-prepare-an-ami-for-publishing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-publish"></a>7.2 Prepare an AMI for publishing</h3>
+<a id="72-prepare-an-ami-for-publishing" class="anchor" href="#72-prepare-an-ami-for-publishing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-publish"></a>7.2 Prepare an <abbr title="Amazon Machine Image">AMI</abbr> for publishing</h3>
 
-<p>To remove all private keys, command-line history and other settings from the AMI prepared using the steps from Section 7.1, run the script:</p>
+<p>To remove all private keys, command-line history and other settings from the <abbr title="Amazon Machine Image">AMI</abbr> prepared using the steps from Section 7.1, run the script:</p>
 
 <pre><code>GMHConfigure/gmh-ami/prepare-for-publication.sh
 </code></pre>
 
-<p>After this script has been executed, you will not be able to log in again to the same instance. Logout from the instance, stop the instance from the EC2 console, and follow these steps to create the AMI:</p>
+<p>After this script has been executed, you will not be able to log in again to the same instance. Logout from the instance, stop the instance from the <abbr title="Elastic Cloud Computing">EC2</abbr> console, and follow these steps to create the <abbr title="Amazon Machine Image">AMI</abbr>:</p>
 
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami</a></p>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#how-to-create-ebs-ami</a></p>
 
-<p>Further security guidelines can be found in: <a href="https://aws.amazon.com/articles/0155828273219400">https://aws.amazon.com/articles/0155828273219400</a></p>
+<p>Further security guidelines can be found in: <a href="https://aws.amazon.com/articles/0155828273219400" target="_blank">https://aws.amazon.com/articles/0155828273219400</a></p>
 
-<p>Here are general guidelines to share a public AMI:</p>
+<p>Here are general guidelines to share a public <abbr title="Amazon Machine Image">AMI</abbr>:</p>
 
-<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html</a></p>
+<p><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html" target="_blank">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharing-amis.html</a></p>
 
 <h3>
 <a id="73-develop-gmhconfigure" class="anchor" href="#73-develop-gmhconfigure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a name="gmh-ami-develop"></a>7.3 Develop GMHConfigure</h3>
@@ -581,7 +584,7 @@ sudo apt-get -y install git
 <pre><code>git commit -a
 </code></pre>
 
-<p>Check if the remote branch is set correctly by executing <strong>git remote -v</strong>. If not, add it with the following command:</p>
+<p>Check if the remote branch is set correctly by executing <strong><code>git remote -v</code></strong>. If not, add it with the following command:</p>
 
 <pre><code>git remote add origin https://github.com/QuantifyingUncertainty/GMHConfigure
 </code></pre>
@@ -596,10 +599,10 @@ sudo apt-get -y install git
 <h2>
 <a id="8-references" class="anchor" href="#8-references" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8. References</h2>
 
-<p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
+<p><a name="calder14"></a>Calderhead B. (2014), <a href="http://www.pnas.org/content/111/49/17408.abstract" target="_blank">A general construction for parallelizing Metropolis-Hastings algorithms</a>, PNAS, Vol: 111, Pages: 17408-17413</p>
       </section>
       <footer>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham" target="_blank">mattgraham</a></small></p>
       </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->

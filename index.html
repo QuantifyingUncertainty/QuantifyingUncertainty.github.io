@@ -391,7 +391,8 @@
 
 <p>Add the path to the <strong><code>GMHPhotoReceptor.jl</code></strong> module file to <strong><code>~/.juliarc.jl</code></strong> by executing the following command in the terminal window.</p>
 
-<pre><code>juser@juliabox:~$ echo 'push!(LOAD_PATH,"/home/juser/GMHPhotoReceptor.jl")' &gt; .juliarc.jl
+<pre><code>juser@juliabox:~$ echo 'push!(LOAD_PATH,"/home/juser/GMHExamples.jl")' &gt; .juliarc.jl
+juser@juliabox:~$ echo 'push!(LOAD_PATH,"/home/juser/GMHPhotoReceptor.jl")' &gt; .juliarc.jl
 </code></pre>
 
 <p>The command creates the file if it does not yet exist. You can check that it was correctly added by executing <strong><code>cat ~/.juliarc.jl</code></strong> in the terminal window.</p>
@@ -421,7 +422,8 @@
 
 <p>Add the following line to the <strong><code>~/.juliarc.jl</code></strong> file, inserting the correct path to the <strong><code>GMHPhotoReceptor.jl</code></strong> folder. </p>
 
-<pre><code>push!(LOAD_PATH,"/path/to/GMHPhotoReceptor.jl")
+<pre><code>push!(LOAD_PATH,"/path/to/GMHExamples.jl")
+push!(LOAD_PATH,"/path/to/GMHPhotoReceptor.jl")
 </code></pre>
 
 <p><strong><code>.juliarc.jl</code></strong> should reside in your home folder, which is system dependent. On Windows, this is usually <strong><code>C:\users\&lt;your name&gt;</code></strong>.</p>
